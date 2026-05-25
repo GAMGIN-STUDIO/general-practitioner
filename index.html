@@ -4,12 +4,17 @@
  <head>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css" integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+	<link rel="stylesheet" href="./src/fonts/fontawesome/css/all.min.css"/>
+	<link rel="stylesheet" href="./src/styles/fonts.css">
+	<link rel="stylesheet" href="./src/styles/main.css">
 	<title>MUDr. Eliška Čermáková s.r.o. | Praktický lékař Břeclav </title>
  </head>
  <body>
 	<header>
 		<h2>
+			<a href="./index.html">
+				<i class="fa-solid fa-heart-pulse"></i>
+			</a>
 			<a href="./index.html">
 				<span>MUDr. Eliška Čermáková s.r.o.</span>
 				<span>praktická lékařka</span>
@@ -18,52 +23,76 @@
 		<nav>
 			<ul>
 				<li><a href="#introduction">Úvod</a></li>
-				<li><a href="#new-patients">Noví pacienti</a></li>
-				<li><a href="#services">Služby</a></li>
-				<li><a href="#office-hours">Ordinační hodiny</a></li>
+				<li><a href="#new-patients" class="important">Pacienti</a></li>
+				<li><a href="#services" class="important">Služby</a></li>
+				<li><a href="#office" class="important">Ordinace</a></li>
+			</ul>
+			<ul>
 				<li><a href="#map">Mapa</a></li>
 				<li><a href="#contact">Kontakt</a></li>
-				<li><a href="#make-appointment">Objednat se</a></li>
+				<li><a href="#make-appointment">Objednání</a></li>
 				<li><a href="#gallery">Galerie</a></li>
-				<li><a href="#information-faq">Informace - FAQ</a></li>
+				<li><a href="#information-faq">FAQ</a></li>
 			</ul>
 		</nav>
 	</header>
 	<main>
 		<section id="introduction">
 			<div class="introI">
-				<h1>Komplexni péče pro dospělé v rozsahu všeobecného lékařství</h1>
+				<h1>Komplexní péče pro dospělé v&nbsp;rozsahu všeobecného lékařství</h1>
 				<div class="quick-links">
-					<a>Akutní pacienti</a>
-					<a>eRecept</a>
-					<a>Preventivní péče</a>
-					<a>Očkování</a>
+					<a>
+						<span class="icon"><i class="fa-solid fa-house-medical-circle-exclamation"></i></span>
+						<span class="title">Akutní pacienti</span>
+						<span class="note">bez objednání</span>
+					</a>
+					<a>
+						<span class="icon"><i class="fa-solid fa-handshake-angle"></i></span>
+						<span class="title">Preventivní péče</span>
+						<span class="note">každé 2 roky</span>
+					</a>
+					<a>
+						<span class="icon"><i class="fa-solid fa-pills"></i></span>
+						<span class="title">eRecept</span>
+						<span class="note">online &lpar;e-mail&rpar;</span>
+					</a>
+					<a>
+						<span class="icon"><i class="fa-solid fa-syringe"></i></span>
+						<span class="title">Očkování</span>
+						<span class="note">pro dospělé</span>
+					</a>
 				</div>
 				<div class="quick-contacts">
-					<a>Objednat se</a>
-					<a>Zavolat do ordinace</a>
+					<a>Objednání</a>
+					<span>|</span>
+					<a>Zavolat</a>
 				</div>
 			</div>
 			<div class="introII">
-				<h2>Ordinace praktické lékařky - personál</h2>
+				<h2>Personál ordinace</h2>
 				<article>
 					<p>
 						Naši prioritou je poskytovat kvalitní a dostupnou zdravotní péči pro každého pacienta.
+					</p>
+					<p>
 						Zakládáme si na individuálním přístupu, odbornosti a spolehlivosti.
 					</p>
 				</article>
 				<div class="stuff-container">
 					<div>
-						<img src="./public/images/physician-assistant" alt="Asistent lékaře">
-						<h3>Asistent doktorky Bc. Filip Čermák</h3>
+						<img src="./public/images/doctor-assistant.png" alt="Asistent lékaře">
+						<span class="job-position">Asistent</span>
+						<h3>Bc.&nbsp;Filip&nbsp;Čermák</h3>
 					</div>
 					<div>
-						<img src="./public/images/nurse" alt="Zdravotní sestra">
-						<h3>Sestřička Ing. Gabriela Čermáková Dis.</h3>
+						<img src="./public/images/nurse.png" alt="Zdravotní sestra">
+						<span class="job-position">Sestřička</span>
+						<h3>Ing.&nbsp;Gabriela&nbsp;Čermáková&nbsp;Dis.</h3>
 					</div>
 					<div>
-						<img src="./public/images/doctor" alt="Doktorka Čermáková">
-						<h3>MUDr. Eliška Čermáková</h3>
+						<img src="./public/images/doctor.png" alt="Lékařka Čermáková">
+						<span class="job-position">Lékařka</span>
+						<h3>MUDr.&nbsp;Eliška&nbsp;Čermáková</h3>
 					</div>
 				</div>
 			</div>
@@ -163,7 +192,7 @@
 				</div>
 			</div>
 		</section>
-		<section id="office-hours">
+		<section id="office">
 			<h2>Ordinační hodiny</h2>
 			<article>
 				Každý všední den ordinujeme zcela stejně. Prosíme pacienti, aby dodržovali hygienická opatření spojené
@@ -289,14 +318,14 @@
 				<div class="content">
 					<ul>
 						<li><a href="#introduction">Úvod</a></li>
-						<li><a href="#new-patients">Noví pacienti</a></li>
+						<li><a href="#new-patients">Pacienti</a></li>
 						<li><a href="#services">Služby</a></li>
-						<li><a href="#office-hours">Ordinační hodiny</a></li>
+						<li><a href="#office">Ordinace</a></li>
 						<li><a href="#map">Mapa</a></li>
 						<li><a href="#contact">Kontakt</a></li>
-						<li><a href="#make-appointment">Objednat se</a></li>
+						<li><a href="#make-appointment">Objednání</a></li>
 						<li><a href="#gallery">Galerie</a></li>
-						<li><a href="#information-faq">Informace - FAQ</a></li>
+						<li><a href="#information-faq">FAQ</a></li>
 					</ul>
 				</div>
 			</div>
