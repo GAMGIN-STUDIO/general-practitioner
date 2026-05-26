@@ -90,6 +90,7 @@ body {
 		top: 0px;
 		grid-template-columns: 1fr 2fr;
 		z-index: 10;
+		padding-top: 0px;
 		backdrop-filter: blur(5px);
 		background-color: color-mix(in srgb, var(--tertiary-color) 25%, transparent);
 		border: none; /* reset better legible for dev reasons*/
@@ -254,6 +255,83 @@ body {
 				}
 			}
 
+			& div#actual {
+				display: flex;
+				flex-direction: column;
+
+				& article {
+					display: flex;
+					justify-content: center;
+					padding-top: 15px;
+
+					& mark {
+						position: relative;
+						width: max-content;
+						color: inherit;
+						background: none;
+
+						padding: 0.08em 0.35em;
+						font-size: 2.5rem;
+						font-weight: 400;
+						font-family: 'Allura';
+						opacity: 0.8;
+
+						& mark {
+							opacity: 1;
+						}
+					}
+
+					& mark::before {
+						opacity: 0.6;
+
+						content: "";
+
+						position: absolute;
+						inset: 0;
+
+						background: linear-gradient(
+							104deg,
+
+							rgba(35, 120, 200, 0.95) 0%,
+							rgba(70, 165, 235, 0.75) 6%,
+							rgba(120, 220, 255, 0.3) 12%,
+
+							rgba(90, 200, 255, 0.55) 22%,
+							rgba(120, 215, 255, 0.82) 32%,
+							rgba(70, 185, 255, 0.92) 42%,
+							rgba(140, 225, 255, 0.75) 52%,
+							rgba(60, 175, 255, 0.95) 62%,
+							rgba(120, 215, 255, 0.72) 74%,
+							rgba(90, 195, 255, 0.88) 84%,
+
+							rgba(130, 220, 255, 0.45) 92%,
+							rgba(130, 220, 255, 0) 100%
+						);
+						border-radius: 0.18em;
+
+						z-index: -1;
+					}
+
+					& mark.I::before {
+						clip-path: polygon(
+							2% 12%,
+							99% 0%,
+							96.5% 86%,
+							0% 100%
+						);
+					}
+
+					& mark.II::before {
+						clip-path: polygon(
+							96% 14%,
+							1% 0%,
+							3.5% 86%,
+							100% 100%
+						);
+					}
+				}
+			}
+
 			& .introII {
 				display: flex;
 				flex-direction: column;
@@ -295,6 +373,146 @@ body {
 				}
 			}
 		}
+
+		& section#new-patients {
+			display: flex;
+			flex-direction: column;
+			border: 3px dashed var(--secondary-color-a);
+			
+			& article {
+				display: flex;
+				flex-direction: column;
+
+				& p {
+					padding: 10px 0px;
+					font-weight: 400;
+					font-family: 'Allura';
+					font-size: 1.8rem;
+					
+					& mark {
+						position: relative;
+						color: inherit;
+						background: none;
+
+						padding: 0.08em 0.35em;
+					}
+
+					& mark::before {
+						content: "";
+
+						position: absolute;
+						inset: 0;
+
+						background: linear-gradient(
+							104deg,
+
+							rgba(35, 120, 200, 0.95) 0%,
+							rgba(70, 165, 235, 0.75) 6%,
+							rgba(120, 220, 255, 0.3) 12%,
+
+							rgba(90, 200, 255, 0.55) 22%,
+							rgba(120, 215, 255, 0.82) 32%,
+							rgba(70, 185, 255, 0.92) 42%,
+							rgba(140, 225, 255, 0.75) 52%,
+							rgba(60, 175, 255, 0.95) 62%,
+							rgba(120, 215, 255, 0.72) 74%,
+							rgba(90, 195, 255, 0.88) 84%,
+
+							rgba(130, 220, 255, 0.45) 92%,
+							rgba(130, 220, 255, 0) 100%
+						);
+						border-radius: 0.18em;
+
+						z-index: -1;
+					}
+
+					& mark.I::before {
+						clip-path: polygon(
+							4% 14%,
+							99% 0%,
+							96.5% 86%,
+							0% 100%
+						);
+					}
+
+					& mark.II::before {
+						clip-path: polygon(
+							96% 14%,
+							1% 0%,
+							3.5% 86%,
+							100% 100%
+						);
+					}
+				}
+
+				& p:nth-child(3) {
+					position: relative;
+					align-self: flex-end;
+					padding: 10px 0px;
+					margin-right: 20px;
+					border: none;
+				}
+
+				& p:nth-child(3)::before {
+					content: '';
+					display: block;
+					position: absolute;
+
+					transform: rotateZ(-17deg);
+					top: -1.875rem;
+					left: -6.25rem;
+					width: calc(1.8rem * 10);
+					aspect-ratio: 1855 / 848;
+
+					background: url('../../public/images/stamp.png');
+					background-size: contain;
+					background-position: center;
+					background-repeat: no-repeat;
+
+					opacity: 0.3;
+				}
+
+				& p:nth-child(3)::after {
+					content: '';
+					position: absolute;
+					display: block;
+					bottom: 1.1rem;
+					left: -10%;
+					transform: translateX(5%);
+					background-color: black;
+					width: 110%;
+					height: 0.1rem;
+				}
+			}
+
+			& a {
+				align-self: center;
+				margin-top: 60px;
+				padding: 10px;
+				text-align: center;
+
+				font-size: 1.2rem;
+				font-weight: 400;
+
+				background-color: var(--font-dark-color);
+				color: var(--font-light-color);
+				border-radius: calc(1.2rem);
+			}
+		}
+
+		& section#services {
+			border: none;
+		}
+	}
+
+	& footer {
+		& .information {
+			& .shortcuts { 
+				& .content {
+					display: flex;
+				}
+			}
+		}
 	}
 }	
 
@@ -330,20 +548,23 @@ body {
 		
 		& header {
 			grid-template-columns: 1fr;
+			grid-template-rows: 1fr 2fr;
+			padding-bottom: 8px;
+
+			& h2 {
+				padding: 0px;
+			}
 
 			& nav {
-				flex-direction: row;
-				justify-content: center;
-				padding-top: 15px;
-				gap: 1rem;
+				flex-direction: column;
+				align-items: center;
+				padding-top: 8px;
+				gap: 0.5rem;
 
 				& ul {
-					flex-direction: column;
-					justify-content: center;
 					gap: 0px;
 
 					& li {
-						justify-content: flex-start;
 
 						& a {
 							padding: 5px;
@@ -353,6 +574,20 @@ body {
 							display: none;
 						}	
 
+						& a[href="#gallery"] {
+							display: none;
+						}
+
+					}
+				}
+			}
+		}
+
+		& main {
+			& section#new-patients {
+				& article {
+					& p:nth-child(3)::after {
+						bottom: 1.4rem;
 					}
 				}
 			}
@@ -372,10 +607,14 @@ body {
 					& li {
 						justify-content: center;
 					}
-				}
 
-				& ul:last-child {
-					display: none;
+						& a[href="#make-appointment"] {
+							display: none;
+						}	
+
+						& a[href="#new-patients"] {
+							display: none;
+						}
 				}
 			}
 		}
@@ -386,9 +625,21 @@ body {
 
 				& .introI {
 
+					& h1 {
+						width: 90%;
+					}
+
 					& .quick-links {
 						grid-template-columns: 1fr 1fr;
 						grid-template-rows: 1fr 1fr;
+					}
+				}
+			}
+
+			& section#new-patients {
+				& article {
+					& p:nth-child(3)::after {
+						bottom: 1.7rem;
 					}
 				}
 			}

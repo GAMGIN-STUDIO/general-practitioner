@@ -23,15 +23,16 @@
 		<nav>
 			<ul>
 				<li><a href="#introduction">Úvod</a></li>
+				<li><a href="#map">Mapa</a></li>
+				<li><a href="#make-appointment">Objednání</a></li>
+				<li><a href="#gallery">Galerie</a></li>
+				<li><a href="#contact">Kontakt</a></li>
+			</ul>
+			<ul>
+				<li><a href="#actual" class="important">Aktuality</a></li>
 				<li><a href="#new-patients" class="important">Pacienti</a></li>
 				<li><a href="#services" class="important">Služby</a></li>
 				<li><a href="#office" class="important">Ordinace</a></li>
-			</ul>
-			<ul>
-				<li><a href="#map">Mapa</a></li>
-				<li><a href="#contact">Kontakt</a></li>
-				<li><a href="#make-appointment">Objednání</a></li>
-				<li><a href="#gallery">Galerie</a></li>
 				<li><a href="#information-faq">FAQ</a></li>
 			</ul>
 		</nav>
@@ -68,6 +69,12 @@
 					<a>Zavolat</a>
 				</div>
 			</div>
+			<div id="actual">
+				<h2>Aktuality</h2>
+				<article>
+					<mark class="I">Žádné<mark class="II">Aktuality</mark></mark> <!-- to comment during holiday  -->
+				</article>
+			</div>
 			<div class="introII">
 				<h2>Personál ordinace</h2>
 				<article>
@@ -101,12 +108,19 @@
 			<h2>Příjem nových pacientů</h2>
 			<article>
 				<p>
-					<mark>&bdquo;V současné době nové pacienty nepřijímáme.</mark> Aktivně hledám nového praktického lékaře, který by se k nám připojil
-					a měl stejnou filizofii péče o pacienty jako my. Nyní situace neumožňuje přijímat nové pacienty, ale doufáme, že se brzy najde
-					vhodný kandidát. Pokud máte zájem o připojení se k nám, neváhejte nás kontaktovat.<br>Děkujeme za pochopení, MUDr. Eliška Čermáková&ldquo;
+					<mark class="I">&bdquo;V současné<mark class="II">době nové pacienty</mark>nepřijímáme.&ldquo;</mark>
 				</p>
-				<a href="#contact">Kontaktovat ordinaci</a>
+				<p>
+					&bdquo;Nyní situace neumožňuje přijímat nové pacienty, ale doufáme, že&nbsp;se&nbsp;brzy najde vhodný, mladší praktický
+					lékař. Aktivně hledám lékaře, který by&nbsp;se&nbsp;k&nbsp;nám připojil a&nbsp; měl stejnou filizofii při péči
+					o&nbsp;pacienty jako my. Ideálně již do konce roku 2027 &lpar;popřípadě 2028&rpar;.
+					Pokud máte zájem o&nbsp;připojení&nbsp;se&nbsp;k&nbsp;nám, neváhejte nás kontaktovat.&ldquo;
+				</p>
+				<p>
+					Děkujeme za pochopení,<br>MUDr. Eliška Čermáková
+				</p>
 			</article>
+			<a href="#contact">Kontaktovat ordinaci</a>
 		</section>
 		<section id="services">
 			<h2>Naše služby</h2>
@@ -253,14 +267,6 @@
 				<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d719.2653393268043!2d16.85412177264287!3d48.757666835572046!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x476d2ac08058dbd9%3A0xc11a5c4f9d0f9ec!2zTmEgVmFsdGlja8OpIDcyMywgNjkxIDQxIELFmWVjbGF2IDQtQ2hhcnbDoXRza8OhIE5vdsOhIFZlcw!5e0!3m2!1scs!2scz!4v1779622306902!5m2!1scs!2scz" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade" target="_blank" rel="noopener noreferrer"></iframe>
 			</div>
 		</section>
-		<section id="contact">
-			<h2>Kontaktuje nás</h2>
-			<p>
-				<span>Poštou: <address>Lorem.</address></span>
-				<span><a href="mailto:lekar.valticka@gmail.com">E-mailem: <email>lekar.valticka@gmail.com</email></a></span>
-				<span><a href="tel:+420777755269">Telefonem: +420 777 755 269</a></span>
-			</p>
-		</section>
 		<section id="make-appointment">
 			<span class="title">Napiště nám</span>
 			<span class="content">Potřebujete se objednat nebo máte dotaz? Preferujete psanou komunikaci? Ozveme se Vám, co nejdříve. Uveďtě prosím: Jméno, Příjmení, Rok narození a Zprávu</span>
@@ -273,6 +279,14 @@
 		</section>
 		<section id="gallery">
 			<img src="./public/images/street-view.png" alt="popis obr test" width="150">
+		</section>
+		<section id="contact">
+			<h2>Kontaktuje nás</h2>
+			<p>
+				<span>Poštou: <address>Lorem.</address></span>
+				<span><a href="mailto:lekar.valticka@gmail.com">E-mailem: <email>lekar.valticka@gmail.com</email></a></span>
+				<span><a href="tel:+420777755269">Telefonem: +420 777 755 269</a></span>
+			</p>
 		</section>
 		<section id="information-faq">
 			<article class="information">
@@ -318,13 +332,16 @@
 				<div class="content">
 					<ul>
 						<li><a href="#introduction">Úvod</a></li>
-						<li><a href="#new-patients">Pacienti</a></li>
-						<li><a href="#services">Služby</a></li>
-						<li><a href="#office">Ordinace</a></li>
 						<li><a href="#map">Mapa</a></li>
-						<li><a href="#contact">Kontakt</a></li>
 						<li><a href="#make-appointment">Objednání</a></li>
 						<li><a href="#gallery">Galerie</a></li>
+						<li><a href="#contact">Kontakt</a></li>
+					</ul>
+					<ul>
+						<li><a href="#actual" class="important">Aktuality</a></li>
+						<li><a href="#new-patients" class="important">Pacienti</a></li>
+						<li><a href="#services" class="important">Služby</a></li>
+						<li><a href="#office" class="important">Ordinace</a></li>
 						<li><a href="#information-faq">FAQ</a></li>
 					</ul>
 				</div>
