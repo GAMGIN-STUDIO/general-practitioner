@@ -64,10 +64,43 @@ h2 {
 	padding: 10px 0px;
 }
 
-& h3 {
+h3 {
 	font-size: 1.1rem;
 	font-weight: 400;
 	padding: 5px 0px;
+}
+
+* > .advice-box {
+	display: flex;
+	justify-content: center;
+	flex-direction: column;
+	margin-top: 40px;
+	font-style: italic;
+
+	& > div:first-child {
+		display: flex;
+		flex-direction: column;
+
+		& h3 {
+			align-self: center;
+			padding-bottom: 7px;
+		}
+
+		& p { 
+			padding: 4px 0px;
+			& a {
+				color: var(--secondary-color-a);
+				font-size: 1.2rem;
+				font-weight: 700;
+				text-decoration: underline;
+			}
+		}
+	}
+
+	& > div:nth-child(2) {
+		align-self: center;
+		margin-top: 30px;
+	}
 }
 
 body {
@@ -219,6 +252,7 @@ body {
 
 						& .note {
 							font-size: 0.7rem;
+							text-align: center;
 						}
 					}
 
@@ -377,7 +411,7 @@ body {
 		& section#new-patients {
 			display: flex;
 			flex-direction: column;
-			border: 3px dashed var(--secondary-color-a);
+			border: 3px dashed rgba(91, 131, 196, 0.2);
 			
 			& article {
 				display: flex;
@@ -459,17 +493,18 @@ body {
 					position: absolute;
 
 					transform: rotateZ(-17deg);
-					top: -1.875rem;
-					left: -6.25rem;
+					top: -3rem;
+					left: -10.25rem;
 					width: calc(1.8rem * 10);
 					aspect-ratio: 1855 / 848;
 
+					background-color: transparent;
 					background: url('../../public/images/stamp.png');
 					background-size: contain;
 					background-position: center;
 					background-repeat: no-repeat;
 
-					opacity: 0.3;
+					opacity: 0.4;
 				}
 
 				& p:nth-child(3)::after {
@@ -496,12 +531,128 @@ body {
 
 				background-color: var(--font-dark-color);
 				color: var(--font-light-color);
-				border-radius: calc(1.2rem);
+				border-radius: calc(0.8rem);
 			}
 		}
 
 		& section#services {
 			border: none;
+
+			& article {
+				margin-bottom: 25px;
+			}
+
+			& ul.services-list {
+				display: flex;
+				flex-direction: column;
+				gap: 40px;
+
+				& li.service-item {
+					display: flex;
+					flex-direction: column;
+					padding: 10px;
+					padding-bottom: 15px;
+
+					background-color: rgba(3, 192, 225, 0.05);
+					border: 3px solid rgba(0, 0, 0, 0.3);
+					border-left: none;
+					border-top: none;
+					border-radius: 10px;
+
+					box-sizing: border-box;
+
+					cursor: pointer;
+
+					& .icon {
+						align-self: center;
+						justify-content: center;
+						align-items: center;
+						font-size: 4rem;
+
+						margin-bottom: 10px;
+						padding: 0.8rem;
+						background-color: rgba(255, 255, 255, 0.6);
+						border: 1px solid rgba(0, 74, 158, 0.2);
+						border-radius: 4rem;
+					}	
+
+					& .icon.active {
+						border-color: rgba(0, 74, 158, 0.8);
+					}
+
+					& .icon.active > i.fa-user-injured {
+						color: var(--quaternary-color);
+					}
+
+					& .icon.active > i.fa-stethoscope {
+						color: cornflowerblue;
+					}		
+
+					& .icon.active > i.fa-vial-circle-check {
+						color: seagreen;
+					}		
+					& .icon.active > i.fa-spa {
+						color: plum;
+					}		
+
+					& .icon.active > i.fa-clover {
+						color: #4ADE80;
+					}	
+
+					& .icon.active > i.fa-pen-to-square {
+						color: gold;
+					}	
+
+					& .icon.active > i.fa-magnifying-glass-plus {
+						color: skyblue;
+					}	
+
+					& .icon.active > i.fa-business-time {
+						color: darkgoldenrod;
+					}	
+					& .icon.active > i.fa-syringe {
+						color: #5EC6C6;
+					}
+
+					& .icon.active > i.fa-user-nurse {
+						color: rgb(174, 35, 125);
+					}
+
+					& h3 {
+						font-weight: 500;
+						font-style: italic;
+						text-decoration: underline;
+					}
+
+					& details {
+
+						& summary {
+							font-weight: 500;
+							padding-bottom: 5px;
+
+							& span {
+								font-size: 0.9rem;
+								opacity: 0.5;
+								font-weight: 400;
+							}
+						}
+
+						& summary.active {
+							& span {
+								opacity: 1;
+							}
+						}
+					}
+				}
+
+				& li.service-item.active {
+					background-color: transparent;
+				}
+
+				& li.service-item:first-child {
+					margin-top: 20px;
+				}
+			}
 		}
 	}
 
@@ -515,6 +666,72 @@ body {
 		}
 	}
 }	
+
+@media (pointer: fine) and (hover: hover) {
+	body {
+		& main {
+			& section#services {
+				& ul.services-list { 
+					& li.service-item:hover {		
+						border-color:  rgba(0, 0, 0, 0.1);
+						background-color: transparent;
+
+						& details {
+							& summary {
+								& span {
+									opacity: 1;
+								}
+							}
+						}
+
+						& .icon {
+							border-color: rgba(0, 74, 158, 0.8);
+						}
+
+						& .icon > i.fa-user-injured {
+							color: var(--quaternary-color);
+						}
+
+						& .icon > i.fa-stethoscope {
+							color: cornflowerblue;
+						}				
+						
+						& .icon > i.fa-vial-circle-check {
+							color: seagreen;
+						}		
+						& .icon > i.fa-spa {
+							color: plum;
+						}		
+
+						& .icon > i.fa-clover {
+							color: #4ADE80;
+						}	
+
+						& .icon > i.fa-pen-to-square {
+							color: gold;
+						}	
+
+						& .icon > i.fa-magnifying-glass-plus {
+							color: skyblue;
+						}	
+
+						& .icon > i.fa-business-time {
+							color: darkgoldenrod;
+						}	
+						& .icon > i.fa-syringe {
+							color: #5EC6C6;
+						}
+
+						& .icon > i.fa-user-nurse {
+							color: rgb(174, 35, 125);
+						}
+
+					}
+				}
+			}
+		}
+	}
+}
 
 @media(max-width: 1000px){
 
