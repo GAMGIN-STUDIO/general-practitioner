@@ -24,7 +24,6 @@
 	--partials-box-sizing: border-box;
 
 	/* partials - SIZING, PADDING, MARGIN */
-	--partials-margin: 1px 0px;
 	--partials-padding: 15px 20px;
 
 	/* FONT */
@@ -34,7 +33,7 @@
 }
 
 html {
-	font-size: clamp(9px, 1.5vw, 25px);
+	font-size: clamp(9px, 1.5vw, 18px);
 }
 
 /* RESET - start */
@@ -66,7 +65,7 @@ h2 {
 
 h3 {
 	font-size: 1.1rem;
-	font-weight: 400;
+	font-weight: 500;
 	padding: 5px 0px;
 }
 
@@ -109,9 +108,8 @@ body {
 	font-family: var(--text-font-family);
 	font-weight: var(--text-font-weigth);
 
-	& header, section, footer {
+	& header, & main section, & footer {
 		display: grid;
-		margin: var(--partials-margin);
 		padding: var(--partials-padding);
 		box-sizing: var(--partials-box-sizing);
 		border: var(--partials-border);
@@ -200,6 +198,14 @@ body {
 	}
 
 	& main {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		gap: 30px;
+
+		& section {
+			max-width: 1200px;
+		}
 
 		& section#introduction {
 			display: flex;
@@ -379,6 +385,7 @@ body {
 				& .stuff-container {
 					display: flex;
 					justify-content: center;
+					align-items: center;
 					gap: 15px;
 					padding: 3px;
 					
@@ -391,17 +398,17 @@ body {
 						margin-top: 10px;
 						width: fit-content;
 
+						& img {
+							width: 100%;
+							border-radius: 2%;
+						}
+
 						& .job-position {
 							font-weight: 700;
 							color: var(--primary-color);
 							text-decoration: underline;
 							margin-top: 15px;
 							margin-bottom: 4px;
-						}
-
-						& img {
-							width: 100%;
-							border-radius: 2%;
 						}
 					}
 				}
@@ -540,6 +547,10 @@ body {
 
 			& article {
 				margin-bottom: 25px;
+
+				& > p {
+					padding: 4px 0px;
+				}
 			}
 
 			& ul.services-list {
@@ -554,7 +565,7 @@ body {
 					padding-bottom: 15px;
 
 					background-color: rgba(3, 192, 225, 0.05);
-					border: 3px solid rgba(0, 0, 0, 0.3);
+					border: 3px solid rgba(91, 131, 196, 0.2);
 					border-left: none;
 					border-top: none;
 					border-radius: 10px;
@@ -652,6 +663,106 @@ body {
 				& li.service-item:first-child {
 					margin-top: 20px;
 				}
+			}
+		}
+
+		& section#office {
+			border: none;
+
+			& article {
+
+				& > p {
+					padding: 4px 0px;
+				}
+			}
+
+			& article.hours-box {
+				display: flex;
+				justify-content: center;
+
+				& > ul {
+					margin-top: 30px;
+					padding: 15px 30px 20px 30px;
+					border: 3px dashed rgba(91, 131, 196, 0.2);
+					border-radius: 10px;
+
+					& > li {
+						margin-top: 20px;
+
+						& h3 {
+							font-size: 3rem;
+							font-family: 'allura';
+						}
+						
+					}
+
+					& > li:first-child {
+						margin-top: 0px;
+					}
+
+					& > ul {
+						padding: 5px 0px;
+						padding-left: 10px;
+
+						& > li .icon {
+							text-shadow: .5px .5px .5px grey;
+							font-size: 1.3rem;
+						}
+
+
+						& > li:first-child .icon {
+							color: var(--quaternary-color);
+						}
+
+						& > li:nth-child(2) {
+							padding: 6px 0px;
+
+							& time, & strong {
+								font-weight: 500;
+							}
+
+							& .icon {
+								color: white;
+							}
+						}
+
+						& > li:nth-child(3) .icon {
+							color: var(--secondary-color-a);
+						}
+
+						& time, & strong {
+							font-size: 1.3rem;
+							font-style: italic;
+						}
+
+					}
+				}
+			}
+
+			& article.symbols {
+				margin-top: 10px;
+
+				& p {
+					padding-left: 15px;
+
+					& .icon {
+						text-shadow: .5px .5px .5px grey;
+					}
+				}
+
+				& p .icon .fa-user-injured {
+					color: var(--quaternary-color);
+				}
+
+				& p .icon .fa-hand-sparkles {
+					color: white;
+				}
+
+				&  p .icon .fa-calendar-days{
+					color: var(--secondary-color-a);
+				}
+
+
 			}
 		}
 	}
