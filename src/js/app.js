@@ -23,3 +23,18 @@ serviceItems.forEach(item => {
 		item.classList.toggle('active');
 	});
 })
+
+const imageHrefs = document.querySelectorAll('section#gallery .gallery-box a');
+let flag = 0;
+imageHrefs.forEach(node => {
+	flag++;
+	if(flag === 1 || flag === 2) {
+		node.classList.add('top-line');
+	}else if(flag === 3 || flag === 4){
+		node.classList.add('bottom-line');
+	}
+	if(flag === 4) {
+		flag = 0;
+	}
+	
+});

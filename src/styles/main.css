@@ -108,6 +108,8 @@ body {
 	font-family: var(--text-font-family);
 	font-weight: var(--text-font-weigth);
 
+	margin: 0px 15px;
+
 	& header, & main section, & footer {
 		display: grid;
 		padding: var(--partials-padding);
@@ -121,7 +123,6 @@ body {
 		top: 0px;
 		grid-template-columns: 1fr 2fr;
 		z-index: 10;
-		padding-top: 0px;
 		backdrop-filter: blur(5px);
 		background-color: color-mix(in srgb, var(--tertiary-color) 25%, transparent);
 		border: none; /* reset better legible for dev reasons*/
@@ -897,11 +898,13 @@ body {
 				margin-top: clamp(15px, 3.5vw, 40px);
 
 				& a {
+					box-sizing: border-box;
 					display: flex;
 					justify-content: center;
 					align-items: center;
 					border-radius: 10px;
 					box-shadow: 7px 7px 7px rgba(0, 0, 0, 0.5);
+					transition: all 0.5s ease;
 
 					& img {
 						width: 100%;
@@ -970,6 +973,7 @@ body {
 								margin: clamp(12px, 2.1vw, 27px) 0px;
 
 								& a {
+									cursor: default;
 									display: flex;
 									justify-content: center;
 									align-items: center;
@@ -980,7 +984,11 @@ body {
 										width: 50%;
 										min-width: 180px;
 										border: 5px solid rgba(27, 62, 119, 0.2);
+										border-radius: 10px;
 										box-shadow: 7px 7px 7px rgba(0, 0, 0, 0.5);
+										
+										cursor: pointer;
+										transition: all 0.5s ease;
 									}
 								}
 							}
@@ -1013,12 +1021,116 @@ body {
 	}
 
 	& footer {
-		& .information {
-			& .shortcuts { 
-				& .content {
-					display: flex;
+		justify-items: center;
+		gap: 60px;
+
+		margin-top: 60px;
+
+		background: linear-gradient(
+			150deg, transparent, rgba(220, 235, 255, 0.3), transparent, rgba(3, 192, 225, 0.1), transparent
+		);
+
+		border: none;
+		border-top: 5px solid rgba(0, 74, 158, 0.5);
+		border-bottom-right-radius: 0px;
+		border-bottom-left-radius: 0px;
+		font-style: italic;
+		
+		color: var(--font-dark-color);
+
+		& > .summary {
+			justify-self: start;
+
+			& .content {
+				font-size: 1.1rem;
+				font-style: italic;
+			}
+
+		}
+
+		& > .middle {
+			display: flex;
+			gap: clamp(60px, 5vw, 150px);
+
+			& > div { 
+				box-sizing: border-box;
+				display: flex;
+				flex-direction: column;
+
+				padding: 15px;
+
+				border: 2px dashed rgba(91, 131, 196, 0.2);
+				border-radius: 10px;
+
+				& h3 {
+					text-align: center;
+					font-size: 1.2rem;
+					padding-bottom: 10px;	
 				}
 			}
+
+			& .address-contact {
+				
+				& a {
+					display: flex;
+					align-items: center;
+
+					padding: 3px;
+					border-radius: 3px;
+
+					& .title {
+						font-size: 1.1rem;
+						text-decoration: underline;
+						text-decoration-color: rgba(27, 62, 119, 0.4);
+					}
+
+					& .text {
+						font-weight: 500;
+					}
+				}
+
+			}
+
+			& .shortcuts { 
+
+				& .content {
+					display: flex;
+					flex-direction: column;
+					gap: 2px;
+
+					& ul {
+						display: flex;
+						justify-content: center;
+						gap: 15px;
+
+						padding: 0px 3px;
+						border-radius: 3px;
+
+						& li {
+							text-decoration: underline;
+							padding: 3px;
+							border-radius: 3px;
+						}
+					}
+				}
+			}
+
+			& .reviews {
+
+				& .content a {
+					text-decoration: underline;
+					padding: 3px;
+					border-radius: 3px;
+				}
+
+				& .content span {
+					font-style: normal;
+				}
+			}
+		}
+
+		& > .copyright {
+			margin-top: 15px;
 		}
 	}
 }	
@@ -1082,6 +1194,112 @@ body {
 							color: rgb(174, 35, 125);
 						}
 
+					}
+				}
+			}
+
+			& section#gallery {
+				& .gallery-box {				
+
+					& a:nth-child(2n + 1).top-line:hover {
+						transform: translateY(5px) translateX(5px);
+						box-shadow: 7px 7px 7px rgba(0, 0, 0, 0.7);
+					}
+
+					& a:nth-child(2n).top-line:hover {
+						transform: translateY(5px) translateX(-5px);
+						box-shadow: 7px 7px 7px rgba(0, 0, 0, 0.7);
+					}
+
+					& a:nth-child(2n + 1).bottom-line:hover {
+						transform: translateY(-5px) translateX(5px);
+						box-shadow: 7px 7px 7px rgba(0, 0, 0, 0.7);
+					}
+
+					& a:nth-child(2n).bottom-line:hover {
+						transform: translateY(-5px) translateX(-5px);
+						box-shadow: 7px 7px 7px rgba(0, 0, 0, 0.7);
+					}
+				}
+			}
+
+			& section#information-faq {
+				& article.faq {
+					& ul {
+						& li {
+							& details {
+								& .gallery-box {
+									& a {
+										& img:hover {
+											border: 5px solid rgba(27, 62, 119, 0.4);
+											transform: translateY(6px);
+											box-shadow: 7px 7px 7px rgba(0, 0, 0, 0.7);
+										}
+									}
+								}
+							}
+						}
+					}
+				}
+			}
+		}
+
+		& footer {
+
+			& .middle {
+
+				& > div:hover {
+					background-color: rgba(91, 131, 196, 0.2);
+					border: 2px dashed rgba(91, 131, 196, 0.4);
+				}
+
+				& .address-contact a:hover {
+					background-color: rgba(91, 131, 196, 0.3);
+				}
+
+				& .shortcuts .content ul:hover {
+					background-color: rgba(91, 131, 196, 0.3);
+				}
+
+				& .shortcuts .content ul li:hover {
+					background-color: rgba(91, 131, 196, 0.4);
+				}
+
+				& .reviews .content a:hover {
+					background-color: rgba(91, 131, 196, 0.3);
+				}
+			}
+		}
+	}
+}
+
+@media(max-width: 1400px){
+
+	body {
+
+		& footer {
+			gap: 30px;
+
+			& > .middle {
+				flex-direction: column;
+				gap: 10px;
+
+				& > div {
+					& h3 {
+						padding-top: 0px;
+					}
+				}
+
+				& .address-contact {
+					& a {
+						justify-content: center;
+					}
+				}
+
+				& .reviews {
+					& .content {
+						display: flex;
+						justify-content: center;
 					}
 				}
 			}
@@ -1171,6 +1389,7 @@ body {
 @media(max-width: 460px){
 
 	body {
+		margin: 0px 8px;
 		
 		& header {
 			& nav {
@@ -1213,6 +1432,65 @@ body {
 				& article {
 					& p:nth-child(3)::after {
 						bottom: 1.7rem;
+					}
+				}
+			}
+
+			& section#gallery {
+				& .gallery-box {
+					& a {
+						box-shadow: 4px 4px 4px rgba(0, 0, 0, 0.5);
+					}
+				}
+			}
+		}
+
+		& footer {
+			padding: 8px 12px;
+
+			& .middle {
+
+				& > div {
+					padding: 10px;
+				}
+
+				& .shortcuts {
+					& .content {
+						& ul {
+							gap: 5px;
+						}
+					}
+				}
+			}
+		}
+	}
+}
+
+@media (max-width: 460px) and (pointer: fine) and (hover: hover) { 
+	/* for tiny displays with real hover (almost never I think) */
+	body {
+		& main {
+			& section#gallery {
+				& .gallery-box {				
+
+					& a:nth-child(2n + 1).top-line:hover {
+						transform: translateY(3px) translateX(3px);
+						box-shadow: 4px 4px 4px rgba(0, 0, 0, 0.7);
+					}
+
+					& a:nth-child(2n).top-line:hover {
+						transform: translateY(3px) translateX(-3px);
+						box-shadow: 4px 4px 4px rgba(0, 0, 0, 0.7);
+					}
+
+					& a:nth-child(2n + 1).bottom-line:hover {
+						transform: translateY(-3px) translateX(3px);
+						box-shadow: 4px 4px 4px rgba(0, 0, 0, 0.7);
+					}
+
+					& a:nth-child(2n).bottom-line:hover {
+						transform: translateY(-3px) translateX(-3px);
+						box-shadow: 4px 4px 4px rgba(0, 0, 0, 0.7);
 					}
 				}
 			}
