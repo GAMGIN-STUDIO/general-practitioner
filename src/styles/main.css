@@ -1,14 +1,7 @@
 :root {
 
 	/* COLORS */
-	--background-gradient: linear-gradient(
-	135deg,
-	#eef5ff 0%,
-	#dbeaff 30%,
-	#bfd8ff 60%,
-	#8cacdb 80%,
-	#bfd8ff 100%
-);
+	--background:  aliceblue;
 	--primary-color: #004a9e;
 	--secondary-color-a: #5B84C4;
 	--secondary-color-b: #03c0e1;
@@ -104,7 +97,7 @@ h3 {
 
 body {
 	position: relative;
-	background: var(--background-gradient);
+	background: var(--background);
 	font-family: var(--text-font-family);
 	font-weight: var(--text-font-weigth);
 
@@ -383,7 +376,7 @@ body {
 					}
 				}
 
-				& .stuff-container {
+				& .gallery-box {
 					display: flex;
 					justify-content: center;
 					align-items: center;
@@ -391,17 +384,25 @@ body {
 					padding: 3px;
 					
 
-					& > div {
+					& > a {
 						display: flex;
 						flex-direction: column;
 						justify-content: flex-start;
 						padding: 10px;
 						margin-top: 10px;
 						width: fit-content;
+						box-shadow: 6px 6px 6px rgba(0, 0, 0, 0.5);
+						border-radius: 2%;
 
 						& img {
 							width: 100%;
 							border-radius: 2%;
+							opacity: 0;
+							transition: opacity 0.5s ease-out;
+						}
+
+						& img.loaded {
+							opacity: 1;
 						}
 
 						& .job-position {
@@ -909,6 +910,12 @@ body {
 					& img {
 						width: 100%;
 						border-radius: 10px;
+						opacity: 0;
+						transition: opacity 0.5s ease-out;
+					}
+
+					& img.loaded {
+						opacity: 1;
 					}
 				}
 			}
@@ -988,7 +995,12 @@ body {
 										box-shadow: 7px 7px 7px rgba(0, 0, 0, 0.5);
 										
 										cursor: pointer;
+										opacity: 0;
 										transition: all 0.5s ease;
+									}
+
+									& img.loaded {
+										opacity: 1;
 									}
 								}
 							}
@@ -1242,6 +1254,34 @@ body {
 					}
 				}
 			}
+
+			& section#not-found {
+				border: none;
+				min-height: 500px;
+				align-items: center;
+
+				& h1 {
+					font-size: clamp(20px, 10vw, 80px);
+					--text-font-weigth: 700;
+					text-align: center;
+
+					& .title {
+						color: purple; /* fallback */
+						background: linear-gradient(90deg, purple, var(--secondary-color-a), #117a8b);
+						background-clip: text;
+						-webkit-background-clip: text;
+						-webkit-text-fill-color: transparent;
+					}
+
+					& .fa-odysee {
+						color: purple; /* fallback */
+						background: linear-gradient(90deg, purple, var(--secondary-color-a), #117a8b);
+						background-clip: text;
+						-webkit-background-clip: text;
+						-webkit-text-fill-color: transparent;
+					}
+				}
+			}
 		}
 
 		& footer {
@@ -1315,10 +1355,10 @@ body {
 			& section#introduction {
 				& .introII {
 
-					& .stuff-container {
+					& .gallery-box {
 						flex-direction: column;
 						
-						& > div {
+						& > a {
 							align-items: center;
 
 							& img {
@@ -1442,6 +1482,10 @@ body {
 						box-shadow: 4px 4px 4px rgba(0, 0, 0, 0.5);
 					}
 				}
+			}
+
+			& section#not-found {
+				min-height: 250px;
 			}
 		}
 

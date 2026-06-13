@@ -1,0 +1,107 @@
+<!-- general-practitioner's office web presentation -->
+ <!DOCTYPE html>
+ <html lang="en">
+ <head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" href="./src/fonts/fontawesome/css/all.min.css"/>
+	<link rel="stylesheet" href="./src/styles/fonts.css">
+	<link rel="stylesheet" href="./src/styles/main.css">
+	<link rel="stylesheet" href="./vendor/photoswipe/dist/photoswipe.css">
+	<title>NOT FOUND </title>
+ </head>
+ <body>
+	<header>
+		<h2>
+			<a href="./index.html">
+				<i class="fa-solid fa-heart-pulse"></i>
+			</a>
+			<a href="./index.html">
+				<span>MUDr. Eliška Čermáková s.r.o.</span>
+				<span>praktická lékařka</span>
+			</a>
+		</h2>
+		<nav>
+			<ul>
+				<li><a href="./#introduction">Úvod</a></li>
+				<li><a href="./#map">Mapa</a></li>				
+				<li><a href="./#gallery">Galerie</a></li>
+				<li><a href="./#make-appointment">Objednání</a></li>
+				<li><a href="./#contact">Kontakt</a></li>
+			</ul>
+			<ul>
+				<li><a href="./#actual" class="important">Aktuality</a></li>
+				<li><a href="./#new-patients" class="important">Pacienti</a></li>
+				<li><a href="./#services" class="important">Služby</a></li>
+				<li><a href="./#office" class="important">Ordinace</a></li>
+				<li><a href="./#information-faq">FAQ</a></li>
+			</ul>
+		</nav>
+	</header>
+	<main>
+		<section id="not-found">
+			<h1><i class="fa-brands fa-odysee"></i> <span class="title">NOT FOUND</span></h1>
+		</section>
+	</main>
+	<footer>
+		<div class="summary">
+			<a href="./index.html"><h2>MUDr. Eliška Čermáková</h2></a>
+			<div class="content">Komplexní péče pro dospělé v&nbsp;rozsahu všeobecného lékařství</div>
+		</div>
+		<div class="middle">
+			<div class="address-contact">
+				<h3>Kontakt</h3>
+				<a href="#map"><span class="title">Adresa:</span>&nbsp;<address class="text">Na&nbsp;Valtické&nbsp;723,&nbsp;691&nbsp;41</address></a>
+				<a href="mailto:lekar.valticka@gmail.com"><span class="title">E-mail:</span>&nbsp;<email class="text">lekar.valticka@gmail.com</email></a>
+				<a href="tel:+420777755269"><span class="title">Telefon:</span>&nbsp;<span class="text">+420&nbsp;777&nbsp;755&nbsp;269</span></a>
+			</div>
+			<div class="shortcuts">
+				<h3>Rychlé odkazy</h3>
+				<div class="content">
+					<ul>
+						<li><a href="./#introduction">Úvod</a></li>
+						<li><a href="./#map">Mapa</a></li>				
+						<li><a href="./#gallery">Galerie</a></li>
+						<li><a href="./#make-appointment">Objednání</a></li>
+						<li><a href="./#contact">Kontakt</a></li>
+					</ul>
+					<ul>
+						<li><a href="./#actual" class="important">Aktuality</a></li>
+						<li><a href="./#new-patients" class="important">Pacienti</a></li>
+						<li><a href="./#services" class="important">Služby</a></li>
+						<li><a href="./#office" class="important">Ordinace</a></li>
+						<li><a href="./#information-faq">FAQ</a></li>
+					</ul>
+				</div>
+			</div>
+			<div class="reviews">
+				<h3>Recenze</h3>
+				<div class="content">
+					<a href="https://www.firmy.cz/detail/13270834-mudr-eliska-cermakova-s-r-o-breclav-charvatska-nova-ves.html">Firmy.cz</a>
+					<span>&nbsp;|&nbsp;</span>
+					<a href="https://share.google/7NDk4SO8NNEmBP70B">Google</a>
+				</div>
+			</div>			
+		</div>
+		<div class="copyright">
+			<span><i class="fa-regular fa-copyright"></i> 2026 <a href="https://gamgin.net">GAMGIN STUDIO</a></span>
+			<span>&nbsp;•&nbsp;</span>
+			<span>All rights reserved</span>
+		</div>
+	</footer>
+
+	<script type="module">
+		import PhotoSwipeLightbox from './vendor/photoswipe/dist/photoswipe-lightbox.esm.js';
+		const lightbox = new PhotoSwipeLightbox({
+		gallery: '.gallery-box',
+		children: 'a',
+		pswpModule: () => import('./vendor/photoswipe/dist/photoswipe.esm.js')
+		});
+		lightbox.init();
+	</script>
+
+	<script src="./src/js/app.js"></script>
+
+
+ </body>
+ </html>
