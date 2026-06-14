@@ -27,6 +27,7 @@
 
 html {
 	font-size: clamp(9px, 1.5vw, 18px);
+	scroll-behavior: smooth;
 }
 
 /* RESET - start */
@@ -91,8 +92,24 @@ h3 {
 
 	& > div:nth-child(2) {
 		align-self: center;
-		margin-top: 30px;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		gap: 10px;
+		margin-top: 20px;
+
+		& a {
+			padding: 1rem;
+			font-weight: 500;
+			color: var(--font-dark-color);
+			border: 3px solid rgba(91, 131, 196, 0.2);
+			border-radius: 5px;
+		}
 	}
+}
+
+* [id] {
+	scroll-margin-top: 130px;
 }
 
 body {
@@ -112,6 +129,7 @@ body {
 	}
 
 	& header {
+		box-sizing: border-box;
 		position: sticky;
 		top: 0px;
 		grid-template-columns: 1fr 2fr;
@@ -160,15 +178,18 @@ body {
 		& nav {
 			display: flex;
 			flex-direction: column;
+			gap: 3px;
 
 			& ul {
 				display: flex;
 				justify-content: flex-end;
 				gap: 0.5rem;
+				border-radius: 3px;
 
 				& li {
 					display: flex;
 					align-items: center;
+					border-radius: 3px;
 					
 					& a {
 						padding: 10px;
@@ -310,6 +331,8 @@ body {
 						font-family: 'Allura';
 						opacity: 0.8;
 
+						color: black;
+
 						& mark {
 							opacity: 1;
 						}
@@ -326,20 +349,20 @@ body {
 						background: linear-gradient(
 							104deg,
 
-							rgba(35, 120, 200, 0.95) 0%,
-							rgba(70, 165, 235, 0.75) 6%,
-							rgba(120, 220, 255, 0.3) 12%,
+							rgba(25, 95, 170, 0.95) 0%,
+							rgba(50, 135, 205, 0.75) 6%,
+							rgba(85, 185, 230, 0.3) 12%,
 
-							rgba(90, 200, 255, 0.55) 22%,
-							rgba(120, 215, 255, 0.82) 32%,
-							rgba(70, 185, 255, 0.92) 42%,
-							rgba(140, 225, 255, 0.75) 52%,
-							rgba(60, 175, 255, 0.95) 62%,
-							rgba(120, 215, 255, 0.72) 74%,
-							rgba(90, 195, 255, 0.88) 84%,
+							rgba(65, 165, 225, 0.55) 22%,
+							rgba(90, 185, 235, 0.82) 32%,
+							rgba(50, 155, 225, 0.92) 42%,
+							rgba(105, 195, 235, 0.75) 52%,
+							rgba(40, 145, 220, 0.95) 62%,
+							rgba(90, 185, 235, 0.72) 74%,
+							rgba(65, 165, 225, 0.88) 84%,
 
-							rgba(130, 220, 255, 0.45) 92%,
-							rgba(130, 220, 255, 0) 100%
+							rgba(95, 190, 235, 0.45) 92%,
+							rgba(95, 190, 235, 0) 100%
 						);
 						border-radius: 0.18em;
 
@@ -1149,7 +1172,50 @@ body {
 
 @media (pointer: fine) and (hover: hover) {
 	body {
+
+		& header {
+
+			& nav {
+
+				& ul:hover {
+					background: linear-gradient(
+						90deg,
+						transparent,
+						rgba(91, 131, 196, 0.3)
+					);
+
+					& li:hover {
+						background-color: rgba(91, 131, 196, 0.4);
+					}
+
+					& li [href="#services"]:hover {
+						background-color: rgba(91, 131, 196, 0.4);
+						color: var(--font-dark-color);
+					}
+				}
+			}
+		}
+
 		& main {
+
+			& section#introduction {
+				& .introI {
+					& .quick-links {
+						& a:hover {
+							background-color: rgba(91, 131, 196, 0.2);
+							border: 3px solid rgba(91, 131, 196, 0.4);
+						}
+					}
+
+					& .quick-contacts {
+
+						& a:hover {
+							text-decoration: underline;
+						}
+					}
+				}
+			}
+
 			& section#services {
 				& ul.services-list { 
 					& li.service-item:hover {		
@@ -1308,6 +1374,17 @@ body {
 				& .reviews .content a:hover {
 					background-color: rgba(91, 131, 196, 0.3);
 				}
+			}
+		}
+	}
+
+	* > .advice-box {
+		& > div:nth-child(2) {
+
+			& a:hover {
+				background-color: rgba(91, 131, 196, 0.2);
+				border: 3px dashed rgba(91, 131, 196, 0.4);
+				transform: scale(1.05);
 			}
 		}
 	}
