@@ -11,6 +11,8 @@
 	--font-dark-color: #1B3F77;
 	--font-light-color: white;
 
+	--light-mix: color-mix(in srgb, var(--tertiary-color) 25%, transparent);
+
 	/* partials - BORDER, BOX SIZING */
 	--partials-border: 1px solid black;
 	--partials-border-radius: 15px;
@@ -135,7 +137,7 @@ body {
 		grid-template-columns: 1fr 2fr;
 		z-index: 10;
 		backdrop-filter: blur(5px);
-		background-color: color-mix(in srgb, var(--tertiary-color) 25%, transparent);
+		background-color: var(--light-mix);
 		border: none; /* reset better legible for dev reasons*/
 		border-bottom: 5px solid rgba(0, 74, 158, 0.3);
 		border-top-right-radius: 0px;
@@ -955,11 +957,13 @@ body {
 				padding-top: 15px;
 
 				& ul {
+					display: flex;
+					flex-direction: column;
+					gap: 2px;
 
 					& li {
 						box-sizing: border-box;
 						display: flex;
-						padding: 8px 8px;
 						margin-bottom: 4px;
 
 						background: linear-gradient(
@@ -973,6 +977,8 @@ body {
 
 						& a {
 							font-weight: 500;
+							width: 100%;
+							padding: 8px;
 						}
 
 						& a:hover {
@@ -982,11 +988,13 @@ body {
 						& details {
 							font-style: italic;
 							text-decoration: none;
+							width: 100%;
 
 							& summary {
 								font-weight: 500;
 								font-style: normal;
 								cursor: pointer;
+								padding: 8px;
 							}
 
 							& summary:hover {
@@ -1029,9 +1037,11 @@ body {
 							}
 						}
 
-						& details[open] {						
+						& details[open] {			
+							padding: 8px;			
 
 							& summary {
+								padding: 0px;								
 								padding-bottom: 5px;
 							}
 						}
@@ -1052,6 +1062,206 @@ body {
 					}
 				}
 			}
+		}
+
+		& section#contact {
+			border: none;
+			position: relative;
+			padding-bottom: 0px;
+			background: linear-gradient(0deg, transparent, var(--light-mix), var(--light-mix));
+
+			& .paragraph {
+				padding: 4px 0px;
+			}
+
+			& address {
+				display: flex;
+				flex-direction: column;
+				gap: 4px;
+
+				& a {
+					position: relative;
+					width: max-content;
+
+					& .title {
+						display: inline-block;
+						font-weight: 500;
+						width: 5rem;
+					}
+				}
+
+				& a::before {
+					content: '';
+					position: absolute;
+					inset: -3px;
+					background-color: transparent;
+					border-radius: 4px;
+					z-index: -10;
+				}
+			}
+		}
+
+		& section#contact::before {
+			content: "";
+			position: absolute;
+			inset: 0;
+			padding: 3px;
+			padding-bottom: 0px;
+			border-radius: inherit;
+			background: linear-gradient(0deg, transparent, transparent, var(--secondary-color-a), var(--primary-color));
+			pointer-events: none;
+
+			mask:
+				linear-gradient(#000 0 0) content-box,
+				linear-gradient(#000 0 0);
+			
+			mask-composite: exclude;
+
+			-webkit-mask:
+				linear-gradient(#000 0 0) content-box,
+				linear-gradient(#000 0 0);
+			-webkit-mask-composite: xor;
+		}
+
+		& section#make-appointment {
+			border: none;
+			position: relative;
+			padding-top: 0px;
+			background: linear-gradient(0deg, var(--light-mix), var(--light-mix), transparent);
+			width: 100%;
+
+			& > ul {
+
+				& li {
+					padding: 2px 0px;
+					font-style: italic;
+				}
+
+				& li::before {
+					content: '• ';
+					margin-left: 5px;
+				}
+			}
+
+			& form {
+				display: flex;
+				flex-direction: column;
+				align-items: center;
+				margin: 25px 0px;
+				gap: 15px;
+
+				& input {
+					height: 55px;
+					width: 70%;
+					border-radius: 15px;
+				}
+
+				& textarea {
+					height: 250px;
+					width: 70%;
+					border-radius: 15px;
+				}
+			}
+
+			& article {
+
+				& details {
+					display: flex;
+					flex-direction: column;
+
+					& summary {
+						display: flex;
+						margin-top: 15px;
+						cursor: pointer;
+
+						& h3 {
+							position: relative;
+							padding: 2px 0px;
+							margin: 3px 0px;
+						}
+
+						& h3::before {
+							content: '';
+							position: absolute;
+							inset: -3px;
+							background-color: transparent;
+							border-radius: 4px;
+							z-index: -10;
+							border: 1px solid transparent;
+						}
+					}
+
+					& .wrapper {
+						display: flex;
+						flex-direction: column;
+
+						& ul {
+							margin-top: 4px;
+
+							& li {
+								padding: 2px 0px;
+
+								& a {
+									position: relative;
+
+									font-weight: 500;
+									font-style: italic;
+									cursor: pointer;
+								}
+
+								& a::before {
+									content: '';
+									position: absolute;
+									inset: -3px;
+									background-color: transparent;
+									border-radius: 4px;
+									z-index: -10;
+								}
+							}
+
+							& li::before {
+								content: '• ';
+								margin-left: 5px;
+							}
+						}
+
+						& p {
+							padding: 4px 0px;
+
+							& a {
+								font-weight: 500;
+								text-decoration: underline;
+							}
+						}
+
+						& p:first-of-type {
+							margin-top: 5px;
+						}
+					}
+				}
+			}
+		}
+
+		& section#make-appointment::before {
+			content: "";
+			position: absolute;
+			inset: 0;
+			padding: 3px;
+			padding-top: 0px;
+			border-radius: inherit;
+			background: linear-gradient(0deg, var(--primary-color), var(--secondary-color-a), transparent, transparent);
+			pointer-events: none;
+
+			mask:
+				linear-gradient(#000 0 0) content-box,
+				linear-gradient(#000 0 0);
+			
+			mask-composite: exclude;
+
+			-webkit-mask:
+				linear-gradient(#000 0 0) content-box,
+				linear-gradient(#000 0 0);
+			-webkit-mask-composite: xor;
 		}
 	}
 
@@ -1219,7 +1429,7 @@ body {
 			& section#services {
 				& ul.services-list { 
 					& li.service-item:hover {		
-						border-color:  rgba(0, 0, 0, 0.1);
+						border-color: rgba(0, 0, 0, 0.1);
 						background-color: transparent;
 
 						& details {
@@ -1345,6 +1555,47 @@ body {
 						background-clip: text;
 						-webkit-background-clip: text;
 						-webkit-text-fill-color: transparent;
+					}
+				}
+			}
+
+			& section#contact {
+				& address {
+
+					& a:hover {
+						& .text {
+							text-decoration: underline;
+						}
+					}
+
+					& a:hover::before {
+						background-color: rgba(91, 131, 196, 0.2);
+					}
+				}
+			}
+
+			& section#make-appointment {
+				
+				& article {
+
+					& details {
+
+						& summary {
+							& h3:hover::before {
+								background-color: rgba(91, 131, 196, 0.6);
+								border: 1px solid var(--font-dark-color);
+							}
+						}
+
+						& .wrapper {
+							& ul {
+								& li {
+									& a:hover::before {
+										background-color: rgba(91, 131, 196, 0.2);
+									}
+								}
+							}
+						}
 					}
 				}
 			}

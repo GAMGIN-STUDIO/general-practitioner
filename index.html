@@ -26,8 +26,8 @@
 				<li><a href="#introduction">Úvod</a></li>
 				<li><a href="#map">Mapa</a></li>				
 				<li><a href="#gallery">Galerie</a></li>
-				<li><a href="#make-appointment">Objednání</a></li>
 				<li><a href="#contact">Kontakt</a></li>
+				<li><a href="#make-appointment">Objednání</a></li>
 			</ul>
 			<ul>
 				<li><a href="#actual" class="important">Aktuality</a></li>
@@ -333,7 +333,7 @@
 				</div>
 				<div>
 					<a href="tel:+420777755269">Zavolat</a>
-					<a href="#contact">Napsat email</a>
+					<a href="#make-appointment">Napsat email</a>
 				</div>
 			</div>
 		</section>
@@ -406,7 +406,7 @@
 				</div>
 				<div>
 					<a href="tel:+420777755269">Zavolat</a>
-					<a href="#contact">Napsat email</a>
+					<a href="#make-appointment">Napsat email</a>
 				</div>
 			</div>
 		</section>
@@ -495,28 +495,67 @@
 				</a>
 			</div>
 		</section>
-		<section id="make-appointment">
-			<span class="title">Napiště nám</span>
-			<span class="content">Potřebujete se objednat nebo máte dotaz? Preferujete psanou komunikaci? Ozveme se Vám, co nejdříve. Uveďtě prosím: Jméno, Příjmení, Rok narození a Zprávu</span>
-			<form>
-				<input type="name" placeholder="Jméno Příjmení">
-				<input type="number" placeholder="Rok narození" maxlength="4">
-				<textarea name="" id="">Dobrý den, potřebuji poradit ohledně...</textarea>
-			</form>
-		</section>
 		<section id="contact">
 			<h2>Kontaktuje nás</h2>
-			<p>
-				Možnosti kontaktování ordinace jsou celkem 4. E-mailem na adresu uvedenou níže, poté telefonním hovorem,
-				SMS nebo WhatsAppem na číslo též uvedené níže.
+			<p class="paragraph">
+				Možnosti kontaktování ordinace jsou celkem 4. Poštou, E-mailem, telefonním hovorem,
+				SMS popřípadě alternativně k SMS a tel. hovoru přes aplikaci WhatsApp
 			</p>
-			<p>
-				<a href="#map"><span class="title">Adresa:</span>&nbsp;<address class="text">Na&nbsp;Valtické&nbsp;723,&nbsp;691&nbsp;41</address></a>
-				<a href="mailto:lekar.valticka@gmail.com"><span class="title">E-mail:</span>&nbsp;<email class="text">lekar.valticka@gmail.com</email></a>
-				<a href="tel:+420777755269"><span class="title">Telefon:</span>&nbsp;<span class="text">+420&nbsp;777&nbsp;755&nbsp;269</span></a>
-			</p>
+			<address class="paragraph">
+				<a href="#map">
+					<span class="title">Adresa:</span>
+					<span class="text">Na&nbsp;Valtické&nbsp;723,&nbsp;691&nbsp;41</span>
+				</a>
+
+				<a href="mailto:lekar.valticka@gmail.com">
+					<span class="title">E-mail:</span>
+					<span class="text">lekar.valticka@gmail.com</span>
+				</a>
+
+				<a href="tel:+420777755269">
+					<span class="title">Telefon:</span>
+					<span class="text">+420&nbsp;777&nbsp;755&nbsp;269</span>
+				</a>
+			</address>
+		</section>
+		<section id="make-appointment">
+			<h2>Napište nám</h2>
+			<ul>
+				<li>Potřebujete se objednat nebo máte dotaz?</li>
+				<li>Preferujete psanou komunikaci? Ozveme se Vám, co nejdříve.</li>
+				<li>Uveďte prosím: <strong>Jméno Příjmení, Rok narození a Zprávu</strong></li>
+			</ul>
+			<form>
+
+				<input type="name" placeholder="Jméno Příjmení">
+				<input
+					type="text"
+					placeholder="Rok narození"
+					maxlength="4"
+					oninput="
+						this.value = this.value.replace(/\D/g, '');
+					"
+				>
+				<textarea name="" id="">Dobrý den, potřebuji poradit ohledně...</textarea>
+				
+			</form>
 			<article>
-				<h3>privacy & policy header for content</h3>
+				<details open>
+					<summary><h3>Privacy & Policy</h3></summary>
+					<div class="wrapper">
+						<ul>
+							<li><a href="https://eur-lex.europa.eu/legal-content/CS/TXT/?uri=CELEX:32016R0679" target="_blank" rel="noopener noreferrer">Oficiální znění nařízení GDPR</a></li>
+							<li><a href="https://www.consilium.europa.eu/cs/policies/data-protection" target="_blank" rel="noopener noreferrer">Informace o&nbsp;ochraně osobních údajů v&nbsp;Evropě</a></li>
+							<li><a href="https://europa.eu/youreurope/business/dealing-with-customers/data-protection/index_cs.htm" target="_blank" rel="noopener noreferrer">Informace pro&nbsp;podnikatele</a></li>
+						</ul>
+						<p>MUDr. Eliška Čermáková s.r.o. zpracovává osobní údaje pouze v rozsahu nezbytném pro odpověď na kontaktní požadavky. Kontaktní formulář může shromažďovat následující osobní údaje: jméno, příjmení, rok narození, předmět zprávy a obsah samotné zprávy.</p>
+						<p>Osobní údaje jsou zpracovávány výhradně za účelem odpovědi na váš dotaz a nejsou používány pro marketing ani jiné účely. Údaje odeslané prostřednictvím tohoto formuláře nejsou ukládány do databáze ani do úložiště prohlížeče. Osobní údaje nejsou předávány třetím stranám.</p>
+						<p>Zpráva je doručena přímo do e-mailového klienta a je uchována pouze po dobu nezbytnou k vyřízení požadavku. Na vyžádání mohou být vaše zpráva i související osobní údaje po poskytnutí odpovědi vymazány.</p>
+						<p>Použití kontaktního formuláře je dobrovolné; ordinaci můžete kontaktovat také přímo e-mailem.</p>
+						<p>Právním základem pro zpracování osobních údajů je článek 6 odst. 1 písm. b&rpar; GDPR – zpracování nezbytné k provedení opatření přijatých před uzavřením smlouvy na žádost subjektu údajů.</p>
+						<p>V případě dotazů týkajících se ochrany osobních údajů můžete tvůrce webu kontaktovat na e-mailové adrese:&nbsp;<a href="mailto:info@gamgin.net">info@gamgin.net</a></p>
+					</div>
+				</details>
 			</article>
 		</section>
 		<section id="information-faq">
@@ -655,8 +694,8 @@
 						<li><a href="#introduction">Úvod</a></li>
 						<li><a href="#map">Mapa</a></li>
 						<li><a href="#gallery">Galerie</a></li>
-						<li><a href="#make-appointment">Objednání</a></li>						
-						<li><a href="#contact">Kontakt</a></li>
+						<li><a href="#contact">Kontakt</a></li>				
+						<li><a href="#make-appointment">Objednání</a></li>		
 					</ul>
 					<ul>
 						<li><a href="#actual" class="important">Aktuality</a></li>
