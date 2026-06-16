@@ -38,3 +38,21 @@ imageHrefs.forEach(node => {
 	}
 	
 });
+
+const faqHeaders = document.querySelectorAll('#faq-header');
+faqHeaders.forEach(faqHeader => {
+	faqHeader.addEventListener('click', () => {
+		faqHeader.classList.toggle('selected');
+	});
+});
+
+
+const checkbox = document.querySelector('#privacy-policy');
+checkbox.addEventListener('change', () => {
+	const details = document.querySelector('#text-conditions');
+	if(checkbox.checked === true) {
+		details.open = true;
+	}else {
+		details.open = false;
+	}
+});

@@ -985,6 +985,10 @@ body {
 							text-decoration: underline rgba(27, 62, 119, 0.2) 2px;
 						}
 
+						& a.selected {
+							text-decoration: underline rgba(27, 62, 119, 0.2) 2px;
+						}
+
 						& details {
 							font-style: italic;
 							text-decoration: none;
@@ -998,6 +1002,10 @@ body {
 							}
 
 							& summary:hover {
+								text-decoration: underline rgba(27, 62, 119, 0.2) 2px;
+							}
+
+							& summary.selected {
 								text-decoration: underline rgba(27, 62, 119, 0.2) 2px;
 							}
 
@@ -1141,26 +1149,235 @@ body {
 					content: '• ';
 					margin-left: 5px;
 				}
+
+				& li:last-child {
+					font-size: 0.8rem;
+					opacity: 0.8;
+					margin-left: 5px;
+					margin-top: 5px;
+				}
+
+				& li:last-child::before {
+					content: '';
+					margin: 0px;
+				}
 			}
 
 			& form {
+				box-sizing: border-box;
 				display: flex;
 				flex-direction: column;
 				align-items: center;
-				margin: 25px 0px;
-				gap: 15px;
+				gap: 0.8rem;		
+				
+				justify-self: center;
 
-				& input {
-					height: 55px;
+				width: 70%;
+				padding: 20px;				
+				margin-bottom: 25px;
+				margin-top: 35px;
+
+				border: 10px solid rgba(128, 0, 128, 0.05);
+				border-radius: 30px;
+
+				background: linear-gradient(300deg, transparent, rgba(220, 235, 255, 0.3), transparent, rgba(3, 192, 225, 0.1), transparent);
+
+				& input, & input:placeholder-shown, & input:focus {
+					box-sizing: border-box;
+					height: 4rem;
 					width: 70%;
 					border-radius: 15px;
+
+					padding-left: 15px;
+
+					border: 5px solid purple;
+					outline: none;
+					resize: none;
+					background-color: rgba(128, 128, 128, 0.1);
+					color: var(--font-dark-color);
+					font-family: 'IBM Plex Mono';
+					font-size: 2.5rem;
+					caret-color: red;	
+					
+					text-transform: uppercase;
 				}
 
-				& textarea {
-					height: 250px;
-					width: 70%;
-					border-radius: 15px;
+				& input:valid {
+					border-color: rgba(128, 0, 128, 0.1);
 				}
+
+				& input:hover {
+					border-color: rgba(128, 0, 128, 0.25);
+					background-color: rgba(128, 128, 128, 0.2);
+				}
+
+				& input:focus {
+					border-color: rgba(128, 0, 128, 0.4);
+					background-color: rgba(128, 128, 128, 0.3);
+				}
+
+				& input::placeholder {
+					color: rgba(0, 74, 158, 0.3);
+					font-family: 'IBM Plex Mono';
+					font-size: 2.5rem;
+					font-weight: 700;
+				}
+
+				/* input autofill damage elimination */
+				
+				input:-webkit-autofill,
+				input:-webkit-autofill:hover,
+				input:-webkit-autofill:focus {
+					transition: all 5000s ease-in;
+				}
+
+				& textarea, & textarea:placeholder-shown, & textarea:focus {
+					box-sizing: border-box;
+					height: 300px;
+					width: 75%;
+					border-radius: 15px;
+
+					margin-top: calc(5px + 5px); /* outline + offset, are not computed in gap right */
+					padding: 10px 20px;
+
+					outline: 5px solid purple;
+					outline-offset: 5px;
+					border: none;
+					resize: none;
+					background-color: rgba(128, 128, 128, 0.1);
+					color: var(--font-dark-color);
+					font-family: 'IBM Plex Mono';
+					font-size: 1rem;
+					caret-color: red;	
+					white-space: pre-line;
+				}
+				
+				& textarea:valid {
+					outline-color: rgba(128, 0, 128, 0.1);
+				}
+
+				& textarea:hover {
+					outline-color: rgba(128, 0, 128, 0.25);
+					background-color: rgba(128, 128, 128, 0.2);
+				}
+
+				& textarea:focus {
+					outline-color: rgba(128, 0, 128, 0.4);
+					background-color: rgba(128, 128, 128, 0.3);
+				}
+
+				& textarea::placeholder {
+					color: rgba(0, 74, 158, 0.3);
+					font-family: 'IBM Plex Mono';
+					font-size: 1rem;
+					font-weight: 700;
+				}		
+				
+				/* Hide scrollbar for Chrome, Safari and Opera */
+				textarea::-webkit-scrollbar {
+					display: none;	
+				}
+
+				/* Hide scrollbar for IE, Edge and Firefox */
+				textarea {
+					-ms-overflow-style: none;  /* IE and Edge */
+					scrollbar-width: none;  /* Firefox */
+				}
+				
+				& label#privacy-policy {
+					cursor: pointer;
+					margin-top: 25px;
+
+					line-height: 1.6;
+					padding: 10px;
+					background-color: rgba(0, 0, 0, 0.1);
+					color: black;
+					border-radius: 10px;
+					text-align: left;						
+
+					& input[type=checkbox] {
+						width: initial;
+						accent-color: plum;
+						margin-right: 5px;
+						transition: transform 0.2s ease;
+					}
+
+					& input[type=checkbox]:focus {
+						transform: scale(1.5);
+					}
+				}
+
+				/* button styles */
+
+				& button {
+					align-self: center;
+					cursor: pointer;
+					margin-top: 30px;
+					padding: 10px;
+					border: 4px solid gray;
+					outline: none;
+					border-radius: 5px;
+					background-color: rgba(128, 128, 128, 0.1);
+					color: white;		
+					font-family: 'Black Ops One';	
+					font-size: 1.2rem;
+					filter: blur(3px);
+					transition: all 0.2s ease;
+				}
+
+				& button:focus {
+					border: 4px solid rgba(190, 0, 0, 0.8);		
+					outline: none;
+				}
+
+				& button.active {
+					background-color: rgba(128, 128, 128, 0.3);
+					color: purple;	
+					border: 4px solid purple;
+					filter: none;
+				}
+
+				& button.active:focus {
+					color: white;
+					background-color: rgba(128, 128, 128, 0.6);
+				}
+			}
+
+			& form:hover {
+				border-color: rgba(128, 0, 128, 0.1);
+			}
+
+			& form:has(input:focus) {
+				border-color: rgba(128, 0, 128, 0.1);
+			}
+
+
+
+
+
+			& form#form-I {
+
+				& .lang:hover {
+					background-color: rgba(128, 128, 128, 0.6);
+					color: white;
+				}
+
+				& label#privacy-policy:hover {
+					& input[type=checkbox] {
+						transform: scale(1.5);
+					}
+				}
+
+				& button:hover {
+					border: 4px solid rgba(190, 0, 0, 0.8);	
+					outline: none;
+				}							
+
+				& button.active:hover {
+					border-color: purple;
+					background-color: rgba(128, 128, 128, 0.6);
+					color: white;
+				}			
 			}
 
 			& article {
@@ -1839,7 +2056,7 @@ body {
 }
 
 @media (max-width: 460px) and (pointer: fine) and (hover: hover) { 
-	/* for tiny displays with real hover (almost never I think) */
+	/* for tiny displays with real hover (almost never I think) is better the smaller move 3px than 5px */
 	body {
 		& main {
 			& section#gallery {

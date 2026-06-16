@@ -523,24 +523,34 @@
 			<ul>
 				<li>Potřebujete se objednat nebo máte dotaz?</li>
 				<li>Preferujete psanou komunikaci? Ozveme se Vám, co nejdříve.</li>
-				<li>Uveďte prosím: <strong>Jméno Příjmení, Rok narození a Zprávu</strong></li>
+				<li>Uveďte prosím do textových polí: <strong>Jméno Příjmení, Rok narození a Zprávu</strong></li>
+				<li>&lpar;do zprávy Vaše Jméno, Příjmení a rok narození již neuvádějte&rpar;</li>
 			</ul>
 			<form>
 
-				<input type="name" placeholder="Jméno Příjmení">
+				<input type="text" placeholder="Jméno Příjmení" oninput="this.value = this.value.toUpperCase()">
 				<input
 					type="text"
 					placeholder="Rok narození"
 					maxlength="4"
+					minlength="4"
 					oninput="
 						this.value = this.value.replace(/\D/g, '');
 					"
 				>
-				<textarea name="" id="">Dobrý den, potřebuji poradit ohledně...</textarea>
+				<input type="text" placeholder="Předmět zprávy" oninput="this.value = this.value.toUpperCase()">
+				<textarea name="" id="" placeholder="Dobrý den, potřebuji eRecept..."></textarea>
+
+				<div class="privacy-policy">
+					<input type="checkbox" id="privacy-policy">
+					<label for="privacy-policy">Souhlasím se zpracováním svých osobních údajů za účelem zodpovězení mého požadavku v souladu se zásadami ochrany osobních údajů na tomto webu.</label>
+				</div>
+
+				<button>Odeslat</button>
 				
 			</form>
 			<article>
-				<details open>
+				<details id="text-conditions">
 					<summary><h3>Privacy & Policy</h3></summary>
 					<div class="wrapper">
 						<ul>
@@ -548,7 +558,7 @@
 							<li><a href="https://www.consilium.europa.eu/cs/policies/data-protection" target="_blank" rel="noopener noreferrer">Informace o&nbsp;ochraně osobních údajů v&nbsp;Evropě</a></li>
 							<li><a href="https://europa.eu/youreurope/business/dealing-with-customers/data-protection/index_cs.htm" target="_blank" rel="noopener noreferrer">Informace pro&nbsp;podnikatele</a></li>
 						</ul>
-						<p>MUDr. Eliška Čermáková s.r.o. zpracovává osobní údaje pouze v rozsahu nezbytném pro odpověď na kontaktní požadavky. Kontaktní formulář může shromažďovat následující osobní údaje: jméno, příjmení, rok narození, předmět zprávy a obsah samotné zprávy.</p>
+						<p>MUDr. Eliška Čermáková s.r.o. zpracovává osobní údaje pouze v rozsahu nezbytném pro odpověďi na kontaktní požadavky. Kontaktní formulář může shromažďovat následující osobní údaje: jméno, příjmení, rok narození, předmět zprávy a obsah samotné zprávy.</p>
 						<p>Osobní údaje jsou zpracovávány výhradně za účelem odpovědi na váš dotaz a nejsou používány pro marketing ani jiné účely. Údaje odeslané prostřednictvím tohoto formuláře nejsou ukládány do databáze ani do úložiště prohlížeče. Osobní údaje nejsou předávány třetím stranám.</p>
 						<p>Zpráva je doručena přímo do e-mailového klienta a je uchována pouze po dobu nezbytnou k vyřízení požadavku. Na vyžádání mohou být vaše zpráva i související osobní údaje po poskytnutí odpovědi vymazány.</p>
 						<p>Použití kontaktního formuláře je dobrovolné; ordinaci můžete kontaktovat také přímo e-mailem.</p>
@@ -569,25 +579,25 @@
 				<ul>
 					<li>
 						<details>
-							<summary>Jak se objednat, jak nás kontaktovat a přijímáme také SMS?</summary>
+							<summary id="faq-header">Jak se objednat, jak nás kontaktovat a přijímáme také SMS?</summary>
 							 Kontaktovat nás můžete pohodlně pomocí kontaktního formuláře na základě, kterého s pomocí vyplněných údajů nám přes Vašeho emailového klienta zašlete e-mail se zprávou, naše ordinace přijímá také SMS pro případy, kdy je pro Vás volání nevhodné a e-mail nepoužíváte
 						</details>
 					</li>
 					<li>
 						<details>
-							<summary>Co s sebou na preventivní prohlídku?</summary>
+							<summary id="faq-header">Co s sebou na preventivní prohlídku?</summary>
 							Podmínkou každé preventivní prohlídky je předchozí objednání, lačný stav (od půl noci nejíst, nepít, nekouřit), přinést ve zkumavce moč popřípadě i TOKS pokud na něj již máte nárok (každé 2 roky je zdarma) a nezapomeňte dobrou náladu, pokud jste náhled onemocněli dejte nám vědět, že s Vámi nemáme daný den počítat
 						</details>
 					</li>			
 					<li>
-						<a href="#services">Jaké služby poskytujeme?</a>
+						<a href="#services" id="faq-header">Jaké služby poskytujeme?</a>
 					</li>					
 					<li>
-						<a href="#office">Jaké jsou ordinační hodiny?</a>
+						<a href="#office" id="faq-header">Jaké jsou ordinační hodiny?</a>
 					</li>		
 					<li>
 						<details>
-							<summary>Máte zájem o očkování nebo potřebujete jejich bližší popis?</summary>
+							<summary id="faq-header">Máte zájem o očkování nebo potřebujete jejich bližší popis?</summary>
 							Informací k poskytnutí je mnoho, proto níže najdete přehledný obrázek s tabulkou, který si lze stáhnout a prostudovat.
 							Zvládnete to jednoduše pomocí pravého tlačítka myši, nebo na mobilu podržením prstu na obrázku.
 							Pokud budete mít zájem o digitální originální verzi, můžeme Vám ji zaslat e-mailem.
@@ -600,7 +610,7 @@
 					</li>
 					<li>
 						<details>
-							<summary>Informace pro nové pacienty?</summary>
+							<summary id="faq-header">Informace pro nové pacienty?</summary>
 							Nyní situace neumožňuje přijímat nové pacienty, ale doufáme, že&nbsp;se&nbsp;brzy najde vhodný, mladší praktický
 							lékař. Aktivně hledáme lékaře, který by&nbsp;se&nbsp;k&nbsp;nám připojil a&nbsp; měl stejnou filizofii při péči
 							o&nbsp;pacienty jako my. To ovšem neznamená, že Vám nemůžeme poradit na kam se obrátit
@@ -608,7 +618,7 @@
 					</li>
 					<li>
 						<details>
-							<summary>Nedovolali jste se?</summary>
+							<summary id="faq-header">Nedovolali jste se?</summary>
 							Nezoufejte a neklesejte na mysli. V naší ordinaci platí, že stačí pouze prozvonit. Nemusíte si tak provolávat drahé minuty,
 							asistent všem nedovolaným automaticky volá zpět. Máme k dispozici historii volaných čísel, do půl hodiny až hodiny tedy
 							očekávejte telefonát. Pokud nevoláme zpět do uvedené doby, zavoláme po 11 hodině, kdy ordinace vyřizuje již pouze přesně
@@ -619,7 +629,7 @@
 					</li>
 					<li>
 						<details>
-							<summary>Nechali jste si poslat eRecept a doplatek je vysoký?</summary>
+							<summary id="faq-header">Nechali jste si poslat eRecept a doplatek je vysoký?</summary>
 							Důležité je lék nevyzvednout, v opačném případě to již nelze řešit. Pokud tedy v lékarně náhle (nezvykle) požadují
 							 vysokou úhradu za lék, který máte psaný pravidelně (nebo i nepravidleně), můžeme jej snadno vyměnit za jiný nebo jiné
 							  balení, pokud je to možné (z 99% případů ANO). Pojišťovny často (někdy až nepředvídatelně) mění doplatky u různých léků
@@ -628,7 +638,7 @@
 					</li>
 					<li>
 						<details>
-							<summary>Jste s naší ordinací &lpar;personál, služby, přístup, péče aj.&rpar; spokojeni či nikoliv?</summary>
+							<summary id="faq-header">Jste s naší ordinací &lpar;personál, služby, přístup, péče aj.&rpar; spokojeni či nikoliv?</summary>
 							V každém případě můžete napsat Vaši zkušenost s naší ordinací formou recenze na webu firmy.cz nebo google firemním profilu.
 							<a href="https://www.firmy.cz/detail/13270834-mudr-eliska-cermakova-s-r-o-breclav-charvatska-nova-ves.html">Firmy.cz</a>,
 							<a href="https://share.google/7NDk4SO8NNEmBP70B">Google</a>
@@ -636,26 +646,26 @@
 					</li>
 					<li>
 						<details>
-							<summary>U jakých pojišťoven mohou být pacienti registrováni?</summary>
+							<summary id="faq-header">U jakých pojišťoven mohou být pacienti registrováni?</summary>
 							Spolupracujeme s VZP (111), OZP (), RBP (), ZPMV (), ...
 						</details>
 					</li>
 					<li>
 						<details>
-							<summary>Vystavujeme eNeschopenky a eRecepty?</summary>
+							<summary id="faq-header">Vystavujeme eNeschopenky a eRecepty?</summary>
 							Samozřejmě ANO. Vystavujeme obojí, neváhejte nás kontaktovat.
 						</details>
 					</li>
 					<li>
 						<details>
-							<summary>Provádíme CRP na počkání?</summary>
+							<summary id="faq-header">Provádíme CRP na počkání?</summary>
 							CRP v naší ordinaci provádíme pouze na základě odběru krve a zaslání vzorku a do laboratoře. Zařízením pro analýzu krve
 							za účelem zjištění hodnoty CRP v krvi nedisponujeme.
 						</details>
 					</li>
 					<li>
 						<details>
-							<summary>Jsme aktivní na sociálních sítích?</summary>
+							<summary id="faq-header">Jsme aktivní na sociálních sítích?</summary>
 							Věříme, že náš web, email, telefon (a náš asistent) jsou dostatečnými prostředky pro spojení se světem.
 							To byl jen vtip. Bohužel je pravdou, že na sociálních sítích nás nenajdete. Jinými slovy oficiální profil nemáme.
 							Jestli se to změní? Možná... :D
@@ -663,7 +673,7 @@
 					</li>
 					<li>
 						<details>
-							<summary>Můžeme zasílat lékařské zprávy a informace o pacientech e-mailem?</summary>
+							<summary id="faq-header">Můžeme zasílat lékařské zprávy a informace o pacientech e-mailem?</summary>
 							Mrzí nás to, že Vám komplikujeme život, ale je to proti GDPR. Pokud na vlastní uvážení, tedy dobrovolně, pacient
 							zašle soukromým e-mailem jakékoliv lékařské informace o sobě nebo jiném pacientovi, nejsme přímo proti a hlavně nemůžeme
 							nikomu nic zakázat, ale upozorňujeme, že vždy vzniká riziko zneužití informací třetí osobou.
