@@ -56,3 +56,66 @@ checkbox.addEventListener('change', () => {
 		details.open = false;
 	}
 });
+
+const formIButton = document.querySelector('[name=appointment-button]');
+const fullName = document.querySelector('#full-name');
+const birthYear = document.querySelector('#birth-year');
+const subject = document.querySelector('#subject');
+const message = document.querySelector('#message');
+
+const formElements = document.querySelectorAll('[name=formIcheck]');
+formElements.forEach(element => {
+	element.addEventListener('input', () => {
+		const formValidity = document.querySelector('#appointment-form').checkValidity();
+		if(formValidity) {
+			formIButton.classList.add('active');
+		}else {
+			formIButton.classList.remove('active');
+		}
+	});
+});
+
+formIButton.addEventListener('click', (e) => {
+	e.preventDefault();
+
+	const form = document.querySelector('#appointment-form');
+	const formValidity = form.reportValidity();
+
+	if(formValidity){
+		const fullNameValue = encodeURIComponent(`[name=${fullName.value.toUpperCase()}]`);
+		const birthYearValue = encodeURIComponent(`[birth-year=${birthYear.value.replace(/\D/g, '')}]`);
+		const subjectValue = encodeURIComponent(subject.value.toUpperCase());
+		const messageValue = encodeURIComponent(message.value);
+		const email = encodeURIComponent('lekar.valticka@gmail.com');
+		const br = encodeURIComponent('\n');
+
+		window.location.href = `mailto:${email}?subject=${subjectValue}&body=${messageValue}${br+br}${fullNameValue}${br}${birthYearValue}`;
+		
+		fullName.value = '';
+		birthYear.value = '';
+		subject.value = '';
+		message.value = '';
+
+		fullName.classList.remove('allow-report');
+		birthYear.classList.remove('allow-report');
+		subject.classList.remove('allow-report');
+		message.classList.remove('allow-report');
+
+		formIButton.classList.add('passed');
+		form.classList.add('passed');
+
+		setTimeout(() => {
+			formIButton.classList.remove('passed');
+			form.classList.remove('passed');
+			formIButton.classList.remove('active');
+		}, 2000);
+
+	}else{
+		fullName.classList.add('allow-report');
+		birthYear.classList.add('allow-report');
+		subject.classList.add('allow-report');
+		message.classList.add('allow-report');
+	}
+
+
+});

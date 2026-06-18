@@ -395,7 +395,7 @@
 					<span class="icon"><i class="fa-solid fa-hand-sparkles"></i></span> = higienická časová rezerva za účelem snižení rizika přenosu nemocí mezi pacienty
 				</p>
 				<p>
-					<span class="icon"><i class="fa-solid fa-calendar-days"></i></span> = čas pro objednané pacienty, kteří se objednali na konkrétní čas, &lpar;1&nbsp;pacient&nbsp;=&nbsp;15&nbsp;až&nbsp;40&nbsp;minut&rpar;
+					<span class="icon"><i class="fa-solid fa-calendar-days"></i></span> = doba pro objednané pacienty, kteří se objednali na konkrétní čas, &lpar;1&nbsp;pacient&nbsp;=&nbsp;15&nbsp;až&nbsp;40&nbsp;minut&rpar;
 				</p>
 			</article>
 			<div class="advice-box">
@@ -418,7 +418,7 @@
 			<article>
 				<p>
 					Ordinace MUDr. Elišky Čermákové se&nbsp;nachází v&nbsp;klidné části Břeclavi v&nbsp;oblasti známého sídliště tzv. &bdquo;Valtická&ldquo;.
-					Ordinace je&nbsp;součástí soukromého zdravotního střediska, které&nbsp;sdílíme také s&nbsp;ordiancí dětských lékařů (Medijana).
+					Ordinace je&nbsp;součástí soukromého zdravotního střediska, které&nbsp;sdílíme také s&nbsp;ordinací dětských lékařů (Medijana).
 				</p>
 				<p>
 					Poskytujeme péči obvodního lékaře pro&nbsp;dospělé pacienty. Pacienti musí být zaregistrováni. Ordinujeme již řadu let a&nbsp;stále
@@ -526,27 +526,59 @@
 				<li>Uveďte prosím do textových polí: <strong>Jméno Příjmení, Rok narození a Zprávu</strong></li>
 				<li>&lpar;do zprávy Vaše Jméno, Příjmení a rok narození již neuvádějte&rpar;</li>
 			</ul>
-			<form>
+			<form id="appointment-form">
+				<label for="full-name">Celé jméno</label>
+				<input 
+					name="formIcheck"
+					id="full-name" 
+					type="text" 
+					placeholder="Jméno Příjmení" 
+					maxlength="60" 
+					minlength="2" 
+					required
+				>
 
-				<input type="text" placeholder="Jméno Příjmení" oninput="this.value = this.value.toUpperCase()">
+				<label for="birth-year">Rok narození</label>
 				<input
+					name="formIcheck"
+					id="birth-year"
 					type="text"
 					placeholder="Rok narození"
 					maxlength="4"
-					minlength="4"
-					oninput="
-						this.value = this.value.replace(/\D/g, '');
-					"
+					pattern="[0-9]{4}"
+					required
 				>
-				<input type="text" placeholder="Předmět zprávy" oninput="this.value = this.value.toUpperCase()">
-				<textarea name="" id="" placeholder="Dobrý den, potřebuji eRecept..."></textarea>
+
+				<label for="subject">Předmět zprávy</label>
+				<input
+					name="formIcheck"
+					id="subject"
+					type="text" 
+					placeholder="Předmět zprávy" 
+					maxlength="60" 
+					minlength="2"  
+					required
+				>
+
+				<label for="message">Zpráva</label>
+				<textarea 
+					name="formIcheck" 
+					id="message" 
+					placeholder="Dobrý den, potřebuji eRecept..." 
+					maxlength="1000" 
+					minlength="10"
+					required
+				></textarea>
 
 				<div class="privacy-policy">
-					<input type="checkbox" id="privacy-policy">
-					<label for="privacy-policy">Souhlasím se zpracováním svých osobních údajů za účelem zodpovězení mého požadavku v souladu se zásadami ochrany osobních údajů na tomto webu.</label>
+					<input name="formIcheck" type="checkbox" id="privacy-policy" required >
+					<label for="privacy-policy">
+						Souhlasím se zpracováním svých osobních údajů za účelem zodpovězení
+						mého požadavku v souladu se zásadami ochrany osobních údajů na tomto webu.
+					</label>
 				</div>
 
-				<button>Odeslat</button>
+				<button name="appointment-button" type="submit">Odeslat</button>
 				
 			</form>
 			<article>
@@ -726,7 +758,7 @@
 			</div>			
 		</div>
 		<div class="copyright">
-			<span><i class="fa-regular fa-copyright"></i> 2026 <a href="https://gamgin.net">GAMGIN STUDIO</a></span>
+			<span><i class="fa-regular fa-copyright"></i> 2026 <a href="https://gamgin.net" target="_blank" rel="noopener noreferrer">GAMGIN STUDIO</a></span>
 			<span>&nbsp;•&nbsp;</span>
 			<span>All rights reserved</span>
 		</div>
