@@ -1,5 +1,35 @@
-const serviceSummary = document.querySelectorAll('.service-summary');
-serviceSummary.forEach(summary => {
+/* safari, firefox detection */
+const ua = navigator.userAgent;
+
+const isSafari =
+	ua.includes("Safari") &&
+	!ua.includes("Chrome") &&
+	!ua.includes("Chromium") &&
+	!ua.includes("CriOS") &&
+	!ua.includes("FxiOS") &&
+	!ua.includes("Edg") &&
+	!ua.includes("OPiOS");
+
+if (isSafari) {
+	document.documentElement.classList.add("safari");
+}
+
+const isFirefox =
+	!ua.includes("Safari") &&
+	!ua.includes("Chrome") &&
+	!ua.includes("Chromium") &&
+	!ua.includes("CriOS") &&
+	ua.includes("FxiOS") &&
+	!ua.includes("Edg") &&
+	!ua.includes("OPiOS");
+
+if(isFirefox) {
+	document.documentElement.classList.add('firefox');
+}
+/* END - safari, firefox detection  */
+
+const servicesSummary = document.querySelectorAll('.service-summary');
+servicesSummary.forEach(summary => {
 	summary.addEventListener('click', (e) => {
 		e.preventDefault();
 	})
@@ -89,7 +119,11 @@ formIButton.addEventListener('click', (e) => {
 		const email = encodeURIComponent('lekar.valticka@gmail.com');
 		const br = encodeURIComponent('\n');
 
+		const isTouchOnly = window.matchMedia("(pointer: coarse)").matches && !window.matchMedia("(hover: hover)").matches;
 		window.location.href = `mailto:${email}?subject=${subjectValue}&body=${messageValue}${br+br}${fullNameValue}${br}${birthYearValue}`;
+		if(isTouchOnly){
+			location.reload(); // much earlier for phones, it's better
+		}
 		
 		fullName.value = '';
 		birthYear.value = '';
@@ -108,7 +142,9 @@ formIButton.addEventListener('click', (e) => {
 			formIButton.classList.remove('passed');
 			form.classList.remove('passed');
 			formIButton.classList.remove('active');
-		}, 2000);
+
+			location.reload();
+		}, 1000);
 
 	}else{
 		fullName.classList.add('allow-report');
