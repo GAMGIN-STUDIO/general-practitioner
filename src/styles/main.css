@@ -335,23 +335,50 @@ body {
 						font-size: 2.5rem;
 						font-weight: 400;
 						font-family: 'Allura';
-						opacity: 0.8;
 
 						color: black;
+					}
 
-						& mark {
-							opacity: 1;
+					& mark.I {
+
+						& mark.II::before {
+background: linear-gradient(
+	104deg,
+
+	rgba(10, 45, 90, 0.98) 0%,
+	rgba(20, 70, 125, 0.82) 6%,
+	rgba(45, 110, 170, 0.28) 12%,
+
+	rgba(35, 95, 155, 0.50) 22%,
+	rgba(55, 125, 190, 0.80) 32%,
+	rgba(25, 90, 165, 0.95) 42%,
+	rgba(65, 140, 200, 0.72) 52%,
+	rgba(18, 75, 145, 0.98) 62%,
+	rgba(55, 125, 190, 0.68) 74%,
+	rgba(35, 95, 155, 0.88) 84%,
+
+	rgba(85, 155, 210, 0.40) 92%,
+	rgba(85, 155, 210, 0) 100%
+);
+							clip-path: polygon(
+								96% 14%,
+								1% 0%,
+								3.5% 86%,
+								100% 100%
+							);
 						}
 					}
 
 					& mark::before {
 						opacity: 0.6;
-
 						content: "";
-
 						position: absolute;
 						inset: 0;
+						border-radius: 0.18em;
+						z-index: -1;
+					}
 
+					& mark.I::before {
 						background: linear-gradient(
 							104deg,
 
@@ -370,26 +397,11 @@ body {
 							rgba(95, 190, 235, 0.45) 92%,
 							rgba(95, 190, 235, 0) 100%
 						);
-						border-radius: 0.18em;
-
-						z-index: -1;
-					}
-
-					& mark.I::before {
 						clip-path: polygon(
 							2% 12%,
 							99% 0%,
 							96.5% 86%,
 							0% 100%
-						);
-					}
-
-					& mark.II::before {
-						clip-path: polygon(
-							96% 14%,
-							1% 0%,
-							3.5% 86%,
-							100% 100%
 						);
 					}
 				}
@@ -461,61 +473,6 @@ body {
 					font-weight: 400;
 					font-family: 'Allura';
 					font-size: 1.8rem;
-					
-					& mark {
-						position: relative;
-						color: inherit;
-						background: none;
-
-						padding: 0.08em 0.35em;
-					}
-
-					& mark::before {
-						content: "";
-
-						position: absolute;
-						inset: 0;
-
-						background: linear-gradient(
-							104deg,
-
-							rgba(35, 120, 200, 0.95) 0%,
-							rgba(70, 165, 235, 0.75) 6%,
-							rgba(120, 220, 255, 0.3) 12%,
-
-							rgba(90, 200, 255, 0.55) 22%,
-							rgba(120, 215, 255, 0.82) 32%,
-							rgba(70, 185, 255, 0.92) 42%,
-							rgba(140, 225, 255, 0.75) 52%,
-							rgba(60, 175, 255, 0.95) 62%,
-							rgba(120, 215, 255, 0.72) 74%,
-							rgba(90, 195, 255, 0.88) 84%,
-
-							rgba(130, 220, 255, 0.45) 92%,
-							rgba(130, 220, 255, 0) 100%
-						);
-						border-radius: 0.18em;
-
-						z-index: -1;
-					}
-
-					& mark.I::before {
-						clip-path: polygon(
-							4% 14%,
-							99% 0%,
-							96.5% 86%,
-							0% 100%
-						);
-					}
-
-					& mark.II::before {
-						clip-path: polygon(
-							96% 14%,
-							1% 0%,
-							3.5% 86%,
-							100% 100%
-						);
-					}
 				}
 
 				& p:first-child, & p:nth-child(2) {

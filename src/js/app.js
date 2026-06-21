@@ -2,11 +2,11 @@
 const ua = navigator.userAgent;
 
 const isSafari =
-	ua.includes("Safari") &&
+	ua.includes("Safari") && /* safari */
 	!ua.includes("Chrome") &&
 	!ua.includes("Chromium") &&
 	!ua.includes("CriOS") &&
-	!ua.includes("FxiOS") &&
+	!ua.includes("Firefox") &&
 	!ua.includes("Edg") &&
 	!ua.includes("OPiOS");
 
@@ -19,7 +19,7 @@ const isFirefox =
 	!ua.includes("Chrome") &&
 	!ua.includes("Chromium") &&
 	!ua.includes("CriOS") &&
-	ua.includes("FxiOS") &&
+	ua.includes("Firefox") && /* firefox */
 	!ua.includes("Edg") &&
 	!ua.includes("OPiOS");
 
@@ -28,6 +28,8 @@ if(isFirefox) {
 }
 /* END - safari, firefox detection  */
 
+
+/* eliminate summary functionality and replace it by click on whole bullet point - reason is larger click area */
 const servicesSummary = document.querySelectorAll('.service-summary');
 servicesSummary.forEach(summary => {
 	summary.addEventListener('click', (e) => {
@@ -53,7 +55,9 @@ serviceItems.forEach(item => {
 		item.classList.toggle('active');
 	});
 })
+/* END - eliminate summary functionality */
 
+/* moving effect on images in gallery */
 const imageHrefs = document.querySelectorAll('section#gallery .gallery-box a');
 let flag = 0;
 imageHrefs.forEach(node => {
@@ -68,15 +72,19 @@ imageHrefs.forEach(node => {
 	}
 	
 });
+/* END - moving effect on images in gallery */
 
+
+/* faq different style after click  */
 const faqHeaders = document.querySelectorAll('#faq-header');
 faqHeaders.forEach(faqHeader => {
 	faqHeader.addEventListener('click', () => {
 		faqHeader.classList.toggle('selected');
 	});
 });
+/* END - faq different style after click  */
 
-
+/* privacy policy conditions open/close after agree/disagree for alert user if he/she didn't read it */
 const checkbox = document.querySelector('#privacy-policy');
 checkbox.addEventListener('change', () => {
 	const details = document.querySelector('#text-conditions');
@@ -86,7 +94,9 @@ checkbox.addEventListener('change', () => {
 		details.open = false;
 	}
 });
+/* END - pivacy policy conditions click functionality */
 
+/* form functionality */
 const formIButton = document.querySelector('[name=appointment-button]');
 const fullName = document.querySelector('#full-name');
 const birthYear = document.querySelector('#birth-year');
@@ -152,6 +162,6 @@ formIButton.addEventListener('click', (e) => {
 		subject.classList.add('allow-report');
 		message.classList.add('allow-report');
 	}
-
+	/* END - form functionality */
 
 });

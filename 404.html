@@ -1,9 +1,10 @@
 <!-- general-practitioner's office web presentation -->
  <!DOCTYPE html>
- <html lang="en">
+ <html lang="cs">
  <head>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta name="description" content="MUDr. Eliška Čermáková s.r.o. – praktický lékař pro dospělé v Břeclavi. Komplexní zdravotní péče, preventivní prohlídky, očkování, eRecept, akutní ošetření bez objednání a kontaktní formulář.">
 	<link rel="stylesheet" href="./src/fonts/fontawesome/css/all.min.css"/>
 	<link rel="stylesheet" href="./src/styles/fonts.css">
 	<link rel="stylesheet" href="./src/styles/main.css">
@@ -13,7 +14,7 @@
  <body>
 	<header>
 		<h2>
-			<a href="./index.html">
+			<a href="./index.html" aria-label="ikona lidského srdce s lékařským motivem">
 				<i class="fa-solid fa-heart-pulse"></i>
 			</a>
 			<a href="./index.html">
@@ -51,7 +52,7 @@
 		<div class="middle">
 			<div class="address-contact">
 				<h3>Kontakt</h3>
-				<a href="#map"><span class="title">Adresa:</span>&nbsp;<address class="text">Na&nbsp;Valtické&nbsp;723,&nbsp;691&nbsp;41</address></a>
+				<a href="./#map"><span class="title">Adresa:</span>&nbsp;<address class="text">Na&nbsp;Valtické&nbsp;723,&nbsp;691&nbsp;41</address></a>
 				<a href="mailto:lekar.valticka@gmail.com"><span class="title">E-mail:</span>&nbsp;<email class="text">lekar.valticka@gmail.com</email></a>
 				<a href="tel:+420777755269"><span class="title">Telefon:</span>&nbsp;<span class="text">+420&nbsp;777&nbsp;755&nbsp;269</span></a>
 			</div>
@@ -101,6 +102,10 @@
 	</script>
 
 	<script src="./src/js/app.js"></script>
+
+	<script>
+		history.replaceState(null, "", "/404");
+	</script>
 
 
  </body>
