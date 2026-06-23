@@ -1031,6 +1031,10 @@ background: linear-gradient(
 					padding: 2px 0px;
 					padding-left: 1.5rem;
 					font-style: italic;
+
+					& a {
+						font-weight: 500;
+					}
 				}
 
 				& li::before {
@@ -1388,10 +1392,6 @@ background: linear-gradient(
 						}
 
 						& a:hover {
-							text-decoration: underline rgba(27, 62, 119, 0.2) 2px;
-						}
-
-						& a.selected {
 							text-decoration: underline rgba(27, 62, 119, 0.2) 2px;
 						}
 
@@ -1838,6 +1838,17 @@ html.firefox {
 			}
 
 			& section#make-appointment {
+
+				& > ul {
+
+					& li {
+
+						& a:hover {
+							text-decoration: underline;
+							color: var(--secondary-color-a);
+						}
+					}
+				}
 
 				& form {
 
