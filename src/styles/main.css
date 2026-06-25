@@ -594,7 +594,11 @@ background: linear-gradient(
 
 					& .icon.active > i.fa-stethoscope {
 						color: cornflowerblue;
-					}		
+					}	
+					
+					& .icon.active > i.fa-user-doctor {
+						color: var(--secondary-color-b);
+					}
 
 					& .icon.active > i.fa-vial-circle-check {
 						color: seagreen;
@@ -678,6 +682,37 @@ background: linear-gradient(
 								position: absolute;
 								left: 0;
 								margin-left: 5px;
+							}
+						}
+
+						& .gallery-box {
+							display: flex;
+							justify-content: center;
+							margin: clamp(12px, 2.1vw, 27px) 0px;
+
+							& a {
+								cursor: default;
+								display: flex;
+								justify-content: center;
+								align-items: center;
+								border-radius: 10px;
+								
+								& img {
+									box-sizing: border-box;
+									width: 50%;
+									min-width: 180px;
+									border: 5px solid rgba(27, 62, 119, 0.2);
+									border-radius: 10px;
+									box-shadow: 7px 7px 7px rgba(0, 0, 0, 0.5);
+									
+									cursor: pointer;
+									opacity: 0;
+									transition: all 0.5s ease;
+								}
+
+								& img.loaded {
+									opacity: 1;
+								}
 							}
 						}
 					}
@@ -947,7 +982,8 @@ background: linear-gradient(
 						width: 100%;
 						border-radius: 10px;
 						opacity: 0;
-						transition: opacity 0.5s ease-out;
+						transition: all 0.5s ease-out;
+						border-bottom: none;
 					}
 
 					& img.loaded {
@@ -1691,6 +1727,21 @@ html.firefox {
 
 			& section#services {
 				& ul.services-list { 
+
+					& li.service-item {
+						& details {
+							& .gallery-box {
+								& a {
+									& img:hover {
+										border: 5px solid rgba(27, 62, 119, 0.4);
+										transform: translateY(6px);
+										box-shadow: 7px 7px 7px rgba(0, 0, 0, 0.7);
+									}
+								}
+							}
+						}
+					}
+
 					& li.service-item:hover {		
 						border-color: rgba(0, 0, 0, 0.1);
 						background-color: transparent;
@@ -1713,7 +1764,11 @@ html.firefox {
 
 						& .icon > i.fa-stethoscope {
 							color: cornflowerblue;
-						}				
+						}			
+						
+						& .icon > i.fa-user-doctor {
+							color: var(--secondary-color-b);
+						}
 						
 						& .icon > i.fa-vial-circle-check {
 							color: seagreen;

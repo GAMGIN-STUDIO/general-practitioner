@@ -39,7 +39,10 @@ servicesSummary.forEach(summary => {
 
 const serviceItems = document.querySelectorAll('.service-item');
 serviceItems.forEach(item => {
-	item.addEventListener('click', () => {
+	item.addEventListener('click', (e) => {
+		if(e.target.classList.contains('gallery-box') || e.target.id === "non-li") {
+			return;
+		}
 		const itemChildren = Array.from(item.children);
 		itemChildren.forEach(child => {
 			if(child.tagName === 'DETAILS'){
