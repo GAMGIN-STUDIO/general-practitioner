@@ -134,9 +134,6 @@ formIButton.addEventListener('click', (e) => {
 
 		const isTouchOnly = window.matchMedia("(pointer: coarse)").matches && !window.matchMedia("(hover: hover)").matches;
 		window.location.href = `mailto:${email}?subject=${subjectValue}&body=${messageValue}${br+br}${fullNameValue}${br}${birthYearValue}`;
-		if(isTouchOnly){
-			location.reload(); // much earlier for phones, it's better
-		}
 		
 		fullName.value = '';
 		birthYear.value = '';
