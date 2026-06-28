@@ -1092,6 +1092,16 @@ background: linear-gradient(
 				}
 			}
 
+			& > h3 {
+				justify-self: center;
+				margin-top: 35px;
+
+				font-weight: 500;
+				font-size: 3rem;
+				font-family: 'allura';
+				font-style: italic;
+			}
+
 			& form {
 				box-sizing: border-box;
 				display: flex;
@@ -1104,7 +1114,7 @@ background: linear-gradient(
 				width: 70%;
 				padding: 20px;				
 				margin-bottom: 25px;
-				margin-top: 35px;
+				margin-top: 15px;
 
 				border: 10px solid rgba(128, 0, 128, 0.05);
 				border-radius: 30px;
