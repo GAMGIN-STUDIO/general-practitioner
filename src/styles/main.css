@@ -855,6 +855,11 @@ background: linear-gradient(
 					text-indent: 1.5rem;
 					text-align: justify;
 					line-height: 1.4rem;
+
+					& a {
+						font-style: italic;
+						font-weight: 400;
+					}
 				}
 			}
 
@@ -916,6 +921,14 @@ background: linear-gradient(
 							background-color: var(--primary-color);
 							border: 2px solid var(--primary-color);
 						}
+
+						& .icon .fa-scale-balanced {
+							color: #598473; /* color used on AVE website */
+						}
+
+						& .icon:has(.fa-scale-balanced) {
+							background-color: white;
+						}	
 
 						& .icon .fa-toilet {
 							color: white;
@@ -1810,6 +1823,17 @@ html.firefox {
 							color: rgb(174, 35, 125);
 						}
 
+					}
+				}
+			}
+
+			& section#map {
+				& article {
+					& p {
+						& a:hover {
+							text-decoration: underline;
+							color: #598473; /* color used on AVE website */
+						}
 					}
 				}
 			}
